@@ -1,0 +1,10 @@
+{
+	"contains_albedo": true,
+	"layers": [
+		{
+			"a": "#ff888888",
+			"rgb": "res://assets/textures/cotton_candy.jpg"
+		}
+	],
+	"resolution": 512
+}
