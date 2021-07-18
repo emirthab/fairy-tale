@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/terrain_data/data.hterrain" type="Resource" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=2]
 [ext_resource path="res://assets/textures/cotton_candy.jpg" type="Texture" id=3]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=4]
+[ext_resource path="res://assets/sprite/player.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 4 )
@@ -14,9 +15,6 @@ textures = [ [ ExtResource( 3 ) ], [ null ] ]
 
 [node name="HTerrain" type="Spatial" parent="."]
 script = ExtResource( 2 )
-ambient_wind = 0.0
-lod_scale = 2.0
-map_scale = Vector3( 1, 1, 1 )
 _terrain_data = ExtResource( 1 )
 chunk_size = 32
 collision_enabled = true
@@ -33,3 +31,6 @@ shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, -0.720624, 0.693326, 0, -0.693326, -0.720624, 106.497, 77.7788, 0 )
+
+[node name="player" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 246.059, -0.0464926, 344.173 )
