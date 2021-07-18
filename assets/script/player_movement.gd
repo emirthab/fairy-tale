@@ -19,6 +19,13 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event):
+	var just_pressed = event.is_pressed() and not event.is_echo()
+
+	if Input.is_key_pressed(KEY_ESCAPE) and just_pressed:
+		if Input.get_mouse_mode() == 0:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 	if event is InputEventMouseMotion:
 		rotate_y(deg2rad(-event.relative.x * mouse_sensivity))
@@ -35,14 +42,6 @@ func _input(event):
 				$Pivot/Camera.fov = 70
 				$Pivot/Camera/TextureRect.hide()
 				mouse_sensivity = 0.1
-
-
-func _process(delta):
-
-	if Input.is_key_pressed(KEY_ESCAPE):
-		get_tree().change_scene("res://Node2D.tscn")
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-
 
 func _physics_process(delta):
 	handle_movement(delta)
