@@ -48,8 +48,17 @@ func _physics_process(delta):
 
 
 func handle_movement(delta):
+	print(velocity)
+	if velocity != Vector3(0,-0.01,0) && !Input.is_action_pressed("speed_up") && is_on_floor():
+		$character/AnimationPlayer.play("walk")
+
+	elif Input.is_action_pressed("speed_up") && velocity != Vector3(0,0,0) && is_on_floor():
+		$character/AnimationPlayer.play("run")
+
+	elif is_on_floor():
+		$character/AnimationPlayer.play("idle")
 	
-	if Input.is_action_pressed("speed_up"):
+	if Input.is_action_pressed("speed_up"):	
 		speed = 15
 	else:
 		speed = 5
@@ -78,6 +87,7 @@ func handle_movement(delta):
 		y_velocity = clamp(y_velocity - gravity, -max_terminal_velocity, max_terminal_velocity)
 
 	if Input.is_action_just_pressed("move_jump") and is_on_floor():
+		$character/AnimationPlayer.play("jump")
 		y_velocity = jump_power
 
 	velocity.y = y_velocity
