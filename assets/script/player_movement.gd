@@ -32,7 +32,7 @@ func _input(event):
 		var rot = Vector3(-event.relative.y,-event.relative.x,0).normalized()
 		pivot.rotate_object_local(rot , resultant * mouse_sensivity)
 		pivot.rotation.z = clamp(pivot.rotation.z,deg2rad(-0),deg2rad(0))
-		pivot.rotation.x = clamp(pivot.rotation.x,deg2rad(-90),deg2rad(90))
+		pivot.rotation.x = clamp(pivot.rotation.x,deg2rad(-30),deg2rad(30))
 
 func _physics_process(delta):
 	handle_movement(delta)
