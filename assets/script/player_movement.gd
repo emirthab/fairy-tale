@@ -5,7 +5,7 @@ var direction = Vector3()
 var speed = 5
 var acceleration = 5
 var air_acceleration : float = 5
-var mouse_sensivity = 0.1
+var mouse_sensivity = 0.004
 var jump_power = 18
 var max_terminal_velocity : float = 54
 var gravity : float = 0.98
@@ -15,7 +15,7 @@ var friction : float = 0.5
 onready var pivot = $Pivot
 onready var raycast = $Pivot/Camera/RayCast
 
-func _ready():
+func _ready():	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event):
@@ -27,32 +27,23 @@ func _input(event):
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
-	if event is InputEventMouseMotion:
-		rotate_y(deg2rad(-event.relative.x * mouse_sensivity))
-		pivot.rotate_x(deg2rad(-event.relative.y * mouse_sensivity))
+	if event is InputEventMouseMotion && Input.get_mouse_mode() != 0:
+		var resultant = sqrt((event.relative.x * event.relative.x )+ (event.relative.y * event.relative.y ))
+		var rot = Vector3(-event.relative.y,-event.relative.x,0).normalized()
+		pivot.rotate_object_local(rot , resultant * mouse_sensivity)
+		pivot.rotation.z = clamp(pivot.rotation.z,deg2rad(-0),deg2rad(0))
 		pivot.rotation.x = clamp(pivot.rotation.x,deg2rad(-90),deg2rad(90))
-
-	if event is InputEventMouseButton:
-		if event.button_index == 2:
-			if $Pivot/Camera.fov == 70:
-				$Pivot/Camera.fov = 50
-				$Pivot/Camera/TextureRect.show()
-				mouse_sensivity = 0.06
-			else:
-				$Pivot/Camera.fov = 70
-				$Pivot/Camera/TextureRect.hide()
-				mouse_sensivity = 0.1
 
 func _physics_process(delta):
 	handle_movement(delta)
 
 
-func handle_movement(delta):
-	print(velocity)
+func handle_movement(delta):	
+	
 	if velocity != Vector3(0,-0.01,0) && !Input.is_action_pressed("speed_up") && is_on_floor():
 		$character/AnimationPlayer.play("walk")
 
-	elif Input.is_action_pressed("speed_up") && velocity != Vector3(0,0,0) && is_on_floor():
+	elif Input.is_action_pressed("speed_up") && velocity != Vector3(0,-0.01,0) && is_on_floor():
 		$character/AnimationPlayer.play("run")
 
 	elif is_on_floor():
@@ -62,24 +53,21 @@ func handle_movement(delta):
 		speed = 15
 	else:
 		speed = 5
-		
+
 	direction = Vector3()
 	if Input.is_action_pressed("move_forward"):
-		direction -= transform.basis.z
-	
+		direction -= pivot.transform.basis.z
+		
 	elif Input.is_action_pressed("move_backward"):
-		direction += transform.basis.z
-	
+		direction += pivot.transform.basis.z
+		
 	if Input.is_action_pressed("move_left"):
-		direction -= transform.basis.x
-	
+		direction -= pivot.transform.basis.x
+		
 	elif Input.is_action_pressed("move_right"):
-		direction += transform.basis.x
+		direction += pivot.transform.basis.x
 	
 	var accel = acceleration if is_on_floor() else air_acceleration
-	velocity = velocity.linear_interpolate(direction * speed, accel * delta)
-	direction = direction.normalized()
-	velocity = direction * speed
 
 	if is_on_floor():
 		y_velocity = -0.01
@@ -89,6 +77,13 @@ func handle_movement(delta):
 	if Input.is_action_just_pressed("move_jump") and is_on_floor():
 		$character/AnimationPlayer.play("jump")
 		y_velocity = jump_power
-
+	
+	velocity = velocity.linear_interpolate(direction * speed, acceleration * delta)
+	direction = direction.normalized()
+	velocity = direction * speed
 	velocity.y = y_velocity
 	move_and_slide(velocity,Vector3.UP)
+	
+	if direction != Vector3(0,0,0):
+		$character.rotation.y = lerp_angle($character.rotation.y, atan2(direction.x,direction.z),delta * 5)
+		#$character.look_at(global_transform.origin - velocity, Vector3(0, 1, 0))
