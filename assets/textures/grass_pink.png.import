@@ -2,35 +2,33 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/grass_pink.png-bf064caa5d28d5d7055d1be17ad25587.s3tc.stex"
-path.etc2="res://.import/grass_pink.png-bf064caa5d28d5d7055d1be17ad25587.etc2.stex"
+path="res://.import/grass_pink.png-bf064caa5d28d5d7055d1be17ad25587.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/textures/grass_pink.png"
-dest_files=[ "res://.import/grass_pink.png-bf064caa5d28d5d7055d1be17ad25587.s3tc.stex", "res://.import/grass_pink.png-bf064caa5d28d5d7055d1be17ad25587.etc2.stex" ]
+dest_files=[ "res://.import/grass_pink.png-bf064caa5d28d5d7055d1be17ad25587.stex" ]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=true
+flags/repeat=0
 flags/filter=true
-flags/mipmaps=true
+flags/mipmaps=false
 flags/anisotropic=false
-flags/srgb=1
+flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
 stream=false
 size_limit=0
-detect_3d=false
+detect_3d=true
 svg/scale=1.0
