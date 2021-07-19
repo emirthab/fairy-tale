@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="Environment" id=1]
+fog_enabled = true
+fog_color = Color( 0.827451, 0.611765, 0.847059, 1 )
+fog_depth_end = 500.0
+fog_depth_curve = 6.49801
+glow_enabled = true
+glow_levels/7 = true
+glow_strength = 1.25
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = SubResource( 1 )

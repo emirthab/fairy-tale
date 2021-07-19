@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/cotton_candy.jpg-0ff530d8a48de23122dfb5496378b357.s3tc.stex"
-path.etc2="res://.import/cotton_candy.jpg-0ff530d8a48de23122dfb5496378b357.etc2.stex"
+path.s3tc="res://.import/cotton_candy.jpg-cde56788d02be130ac16a922ad5bd482.s3tc.stex"
+path.etc2="res://.import/cotton_candy.jpg-cde56788d02be130ac16a922ad5bd482.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/cotton_candy.jpg"
-dest_files=[ "res://.import/cotton_candy.jpg-0ff530d8a48de23122dfb5496378b357.s3tc.stex", "res://.import/cotton_candy.jpg-0ff530d8a48de23122dfb5496378b357.etc2.stex" ]
+source_file="res://assets/textures/environment/cotton_candy.jpg"
+dest_files=[ "res://.import/cotton_candy.jpg-cde56788d02be130ac16a922ad5bd482.s3tc.stex", "res://.import/cotton_candy.jpg-cde56788d02be130ac16a922ad5bd482.etc2.stex" ]
 
 [params]
 

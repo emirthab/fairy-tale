@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/grass_purplepink.png-8499898f4e489267a4774bff5da6e1f2.s3tc.stex"
-path.etc2="res://.import/grass_purplepink.png-8499898f4e489267a4774bff5da6e1f2.etc2.stex"
+path.s3tc="res://.import/grass_purplepink.png-ab7900e0cb08a929bcf4a172e691ae9f.s3tc.stex"
+path.etc2="res://.import/grass_purplepink.png-ab7900e0cb08a929bcf4a172e691ae9f.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/grass_purplepink.png"
-dest_files=[ "res://.import/grass_purplepink.png-8499898f4e489267a4774bff5da6e1f2.s3tc.stex", "res://.import/grass_purplepink.png-8499898f4e489267a4774bff5da6e1f2.etc2.stex" ]
+source_file="res://assets/textures/environment/grass_purplepink.png"
+dest_files=[ "res://.import/grass_purplepink.png-ab7900e0cb08a929bcf4a172e691ae9f.s3tc.stex", "res://.import/grass_purplepink.png-ab7900e0cb08a929bcf4a172e691ae9f.etc2.stex" ]
 
 [params]
 
