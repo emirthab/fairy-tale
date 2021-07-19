@@ -2,14 +2,11 @@
 
 importer="hterrain_packed_texture_array_importer"
 type="TextureArray"
-path.s3tc="res://.import/Spatial_albedo_bump.packed_texarr-52eca4d306567bae4034f706f8236177.s3tc.texarr"
-path.etc2="res://.import/Spatial_albedo_bump.packed_texarr-52eca4d306567bae4034f706f8236177.etc2.texarr"
+valid=false
 
 [deps]
 
 source_file="res://assets/scenes/Spatial_albedo_bump.packed_texarr"
-dest_files=[ "res://.import/Spatial_albedo_bump.packed_texarr-52eca4d306567bae4034f706f8236177.s3tc.texarr", "res://.import/Spatial_albedo_bump.packed_texarr-52eca4d306567bae4034f706f8236177.etc2.texarr" ]
-
 [params]
 
 compress/mode=1
