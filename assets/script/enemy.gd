@@ -5,6 +5,13 @@ var chase = false
 var walking_to_spawn = false
 var player_attack_area = false
 var direction = Vector3()
+#gravity
+var y_velocity : float
+var velocity = Vector3() 
+var max_terminal_velocity : float = 54
+var gravity : float = 0.98
+var acceleration = 5
+var air_acceleration : float = 5
 
 export var speed = 6
 export var cooldown = 2
@@ -25,6 +32,7 @@ func _ready():
 	$enemy/attack_area.connect("body_exited",self,"attack_exited")
 
 func _physics_process(delta):
+	direction = Vector3()
 
 	if walking_to_spawn == true:
 		walk_toward($spawnpoint,delta)
@@ -34,6 +42,18 @@ func _physics_process(delta):
 				walk_toward(player,delta)
 		else:
 			$enemy/model/AnimationPlayer.play("idle")
+
+	var accel = acceleration if $enemy.is_on_floor() else air_acceleration
+	if $enemy.is_on_floor():
+		y_velocity = -0.01
+	else:
+		y_velocity = clamp(y_velocity - gravity, -max_terminal_velocity, max_terminal_velocity)
+
+	velocity = velocity.linear_interpolate(direction * speed, acceleration * delta)
+	direction = direction.normalized()
+	velocity = direction * speed
+	velocity.y = y_velocity
+	$enemy.move_and_slide(velocity,Vector3.UP)
 
 func spawnpoint_entered(body):
 	walking_to_spawn = false
@@ -63,7 +83,7 @@ func walk_toward(point,delta):
 	direction = point.global_transform.origin - $enemy.global_transform.origin
 	$enemy.rotation.y = lerp_angle($enemy.rotation.y, atan2(direction.x,direction.z),delta * 5)
 	#$enemy.look_at($enemy.global_transform.origin - direction,Vector3.UP)
-	$enemy.move_and_collide(direction.normalized() * speed * delta)
+	#$enemy.move_and_collide(direction.normalized() * speed * delta)
 	$enemy/model/AnimationPlayer.play("walk")
 
 func shoot():

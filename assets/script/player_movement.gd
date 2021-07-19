@@ -10,7 +10,6 @@ var jump_power = 18
 var max_terminal_velocity : float = 54
 var gravity : float = 0.98
 var y_velocity : float
-var friction : float = 0.5
 
 onready var pivot = $Pivot
 onready var raycast = $Pivot/Camera/RayCast

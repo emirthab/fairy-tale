@@ -12,21 +12,21 @@ flags_transparent = true
 flags_unshaded = true
 albedo_color = Color( 1, 0, 0, 0.152941 )
 
-[sub_resource type="BoxShape" id=7]
+[sub_resource type="BoxShape" id=3]
 extents = Vector3( 0.449184, 1.01079, 0.798303 )
 
-[sub_resource type="BoxShape" id=6]
+[sub_resource type="BoxShape" id=4]
 
-[sub_resource type="CylinderShape" id=3]
+[sub_resource type="CylinderShape" id=5]
 radius = 9.65767
 height = 2.04785
 
-[sub_resource type="CylinderMesh" id=4]
+[sub_resource type="CylinderMesh" id=6]
 top_radius = 9.66
 bottom_radius = 9.66
 height = 2.05
 
-[sub_resource type="SpatialMaterial" id=5]
+[sub_resource type="SpatialMaterial" id=7]
 flags_transparent = true
 flags_unshaded = true
 albedo_color = Color( 0.886275, 0.854902, 0.34902, 0.0666667 )
@@ -61,24 +61,24 @@ material = SubResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="enemy/attack_area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.785919, 0.872949 )
-shape = SubResource( 7 )
+shape = SubResource( 3 )
 
 [node name="spawnpoint" type="Area" parent="."]
 transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="spawnpoint"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.788799, 0 )
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 
 [node name="spawnarea" type="Area" parent="."]
 transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="spawnarea"]
 transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 
 [node name="MeshInstance" type="MeshInstance" parent="spawnarea"]
 transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0 )
 visible = false
-mesh = SubResource( 4 )
-material/0 = SubResource( 5 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 7 )
