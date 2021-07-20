@@ -1,0 +1,79 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/sprite/houses/cartoon_house.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/sprite/houses/house_1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/sprite/houses/house_2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/sprite/player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/sprite/houses/candy_house.tscn" type="PackedScene" id=5]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.431373, 0.913725, 0.329412, 1 )
+
+[sub_resource type="PlaneMesh" id=2]
+material = SubResource( 1 )
+size = Vector2( 100, 100 )
+
+[sub_resource type="ConcavePolygonShape" id=3]
+data = PoolVector3Array( 50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0, -50, 50, 0, -50 )
+
+[node name="demo" type="Spatial"]
+
+[node name="candy_house" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.201916, 0, 0, 0, 0.201916, 0, 0, 0, 0.201916, 0, 0, 0 )
+
+[node name="house-lod0" parent="candy_house" index="0"]
+visible = true
+
+[node name="house-lod1" parent="candy_house" index="1"]
+visible = false
+
+[node name="cartoon_house" parent="." instance=ExtResource( 1 )]
+transform = Transform( 2.0028, 0, 0, 0, 2.0028, 0, 0, 0, 2.0028, 12.1907, 0, 12.6379 )
+
+[node name="house-lod0" parent="cartoon_house" index="0"]
+visible = true
+
+[node name="house-lod1" parent="cartoon_house" index="1"]
+visible = false
+
+[node name="house_1" parent="." instance=ExtResource( 2 )]
+transform = Transform( -1.06202, 0, -0.385454, 0, 1.12981, 0, 0.385454, 0, -1.06202, 2.70944, 0, 28.6343 )
+
+[node name="house-lod0" parent="house_1" index="0"]
+visible = true
+
+[node name="model-lod1" parent="house_1" index="1"]
+visible = false
+
+[node name="house_2" parent="." instance=ExtResource( 3 )]
+transform = Transform( -3.79599, 0, -0.507235, 0, 3.82973, 0, 0.507235, 0, -3.79599, -8.89472, -0.643759, 16.5133 )
+
+[node name="house-lod0" parent="house_2" index="0"]
+visible = true
+
+[node name="house-lod1" parent="house_2" index="1"]
+visible = false
+
+[node name="player" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 1.17413, 0.170789, 9.06384 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.846537, 0.53233, 0, -0.53233, 0.846537, 0, 0, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 200, 0, 0, 0, 1, 0, 0, 0, 200, 0, 0, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="MeshInstance"]
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance/StaticBody"]
+shape = SubResource( 3 )
+
+[editable path="candy_house"]
+
+[editable path="cartoon_house"]
+
+[editable path="house_1"]
+
+[editable path="house_2"]
