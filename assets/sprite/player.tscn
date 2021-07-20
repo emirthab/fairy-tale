@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/script/player_movement.gd" type="Script" id=1]
 [ext_resource path="res://assets/geometry/character/character.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/geometry/character/character_sword.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.698738
@@ -22,3 +23,7 @@ far = 500.0
 
 [node name="character" parent="." instance=ExtResource( 2 )]
 transform = Transform( -0.7, 0, -2.28089e-07, 0, 0.7, 0, 2.28089e-07, 0, -0.7, 0, 0, 0 )
+visible = false
+
+[node name="character_sword" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.7, 0, 2.28089e-07, 0, 0.7, 0, -2.28089e-07, 0, -0.7, 0, 0, 0 )

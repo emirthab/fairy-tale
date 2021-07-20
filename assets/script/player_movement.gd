@@ -11,8 +11,10 @@ var max_terminal_velocity : float = 54
 var gravity : float = 0.98
 var y_velocity : float
 
+onready var character = $character_sword
 onready var pivot = $Pivot
 onready var raycast = $Pivot/Camera/RayCast
+onready var animplayer = character.get_node("AnimationPlayer")
 
 func _ready():	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -40,13 +42,13 @@ func _physics_process(delta):
 func handle_movement(delta):	
 	
 	if velocity != Vector3(0,-0.01,0) && !Input.is_action_pressed("speed_up") && is_on_floor():
-		$character/AnimationPlayer.play("walk")
+		animplayer.play("walk")
 
 	elif Input.is_action_pressed("speed_up") && velocity != Vector3(0,-0.01,0) && is_on_floor():
-		$character/AnimationPlayer.play("run")
+		animplayer.play("run")
 
 	elif is_on_floor():
-		$character/AnimationPlayer.play("idle")
+		animplayer.play("idle")
 	
 	if Input.is_action_pressed("speed_up"):	
 		speed = 15
@@ -74,7 +76,7 @@ func handle_movement(delta):
 		y_velocity = clamp(y_velocity - gravity, -max_terminal_velocity, max_terminal_velocity)
 
 	if Input.is_action_just_pressed("move_jump") and is_on_floor():
-		$character/AnimationPlayer.play("jump")
+		animplayer.play("jump")
 		y_velocity = jump_power
 	
 	velocity = velocity.linear_interpolate(direction * speed, acceleration * delta)
@@ -84,5 +86,5 @@ func handle_movement(delta):
 	move_and_slide(velocity,Vector3.UP)
 	
 	if direction != Vector3(0,0,0):
-		$character.rotation.y = lerp_angle($character.rotation.y, atan2(direction.x,direction.z),delta * 5)
+		character.rotation.y = lerp_angle(character.rotation.y, atan2(direction.x,direction.z),delta * 5)
 		#$character.look_at(global_transform.origin - velocity, Vector3(0, 1, 0))
