@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/model.fbx-84edf0d91da0a46ee4451e259dafa99f.scn"
+path="res://.import/model.fbx-288d4d914d732ef23863e1f4b517ba98.scn"
 
 [deps]
 
-source_file="res://assets/geometry/houses/house_2/lod0/model.fbx"
-dest_files=[ "res://.import/model.fbx-84edf0d91da0a46ee4451e259dafa99f.scn" ]
+source_file="res://assets/geometry/houses/cartoon_house/lod1/model.fbx"
+dest_files=[ "res://.import/model.fbx-288d4d914d732ef23863e1f4b517ba98.scn" ]
 
 [params]
 
