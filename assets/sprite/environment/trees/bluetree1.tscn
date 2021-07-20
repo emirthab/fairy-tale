@@ -18,7 +18,6 @@ visible = false
 visible = false
 
 [node name="tree-lod2" parent="." instance=ExtResource( 2 )]
-visible = false
 
 [node name="StaticBody" type="StaticBody" parent="."]
 transform = Transform( 100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0.0492225, 0, -0.0147281 )

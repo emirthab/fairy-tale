@@ -12,8 +12,10 @@ data = PoolVector3Array( -0.0174, -0.0033, 0.0066, -0.0155, -0.003, 0.0075, -0.0
 script = ExtResource( 4 )
 
 [node name="tree-lod0" parent="." instance=ExtResource( 1 )]
+visible = false
 
 [node name="tree-lod1" parent="." instance=ExtResource( 2 )]
+visible = false
 
 [node name="tree-lod2" parent="." instance=ExtResource( 3 )]
 
