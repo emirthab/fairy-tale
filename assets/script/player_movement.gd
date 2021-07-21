@@ -12,8 +12,11 @@ var gravity : float = 0.98
 var y_velocity : float
 
 var attackers = []
-
+var target_dir
 var current_attack = 0
+
+#debug
+onready var textedit = get_node("../TextEdit")
 
 onready var char_pivot = $character_pivot
 onready var puppet_pivot = $PuppetPivot
@@ -22,7 +25,6 @@ onready var pivot = $Pivot
 onready var character = $character_sword
 onready var raycast = $Pivot/Camera/RayCast
 onready var animplayer = character.get_node("AnimationPlayer")
-onready var mush = get_node("../enemy_mushroom")
 
 func _ready():
 	$attack_area.connect("body_entered",self,"attack_area_entered")
@@ -48,17 +50,19 @@ func _input(event):
 		var resultant = sqrt((event.relative.x * event.relative.x )+ (event.relative.y * event.relative.y ))
 		var rot = Vector3(-event.relative.y,-event.relative.x,0).normalized()
 		puppet_pivot.rotate_object_local(rot , resultant * mouse_sensivity)
-		puppet_pivot.rotation.z = clamp(pivot.rotation.z,deg2rad(-0),deg2rad(0))
-		puppet_pivot.rotation.x = clamp(pivot.rotation.x,deg2rad(-30),deg2rad(30))
+		puppet_pivot.rotation.z = clamp(puppet_pivot.rotation.z,deg2rad(-0),deg2rad(0))
+		puppet_pivot.rotation.x = clamp(puppet_pivot.rotation.x,deg2rad(-30),deg2rad(30))
 
 func _physics_process(delta):
+	auto_focus(delta)
 	handle_movement(delta)
 
 
 func handle_movement(delta):
-	
+
+	#pivot.rotation.z = lerp_angle(pivot.rotation.z, puppet_pivot.rotation.z ,delta * 10)
+	pivot.rotation.x = lerp_angle(pivot.rotation.x, puppet_pivot.rotation.x ,delta * 10)
 	pivot.rotation.y = lerp_angle(pivot.rotation.y, puppet_pivot.rotation.y ,delta * 10)
-	pivot.rotation.z = lerp_angle(pivot.rotation.z, puppet_pivot.rotation.z ,delta * 10)
 	#pivot.rotation = pivot.rotation.linear_interpolate(puppet_pivot.rotation,delta * 10)
 	pivot.global_transform.origin = pivot.global_transform.origin.linear_interpolate(character.get_node("RemotePivot").global_transform.origin,delta *2)
 	
@@ -99,16 +103,15 @@ func handle_movement(delta):
 	if Input.is_action_just_pressed("move_jump") and is_on_floor() && current_attack == 0:
 		animplayer.play("jump")
 		y_velocity = jump_power
-	
+
 	velocity = velocity.linear_interpolate(direction * speed, acceleration * delta)
 	direction = direction.normalized()
 	velocity = direction * speed
 	velocity.y = y_velocity
 	move_and_slide(velocity,Vector3.UP)
 	
-	if current_attack == 2:
-		var dir = character.transform.basis.z * delta * 1.5
-		move_and_collide(dir)
+	#if current_attack == 1:
+		#var dir = character.transform.basis.z * delta * 15
 		#character.rotation.y = lerp_angle(character.rotation.y, atan2(dir.x,dir.z),delta * 5)
 	if direction != Vector3(0,0,0):
 		character.rotation.y = lerp_angle(character.rotation.y, atan2(direction.x,direction.z),delta * 5)
@@ -132,8 +135,62 @@ func finish_attack(anim_name):
 
 func attack_area_entered(body):
 	if body.name == "enemy":
+		print("deneme")
 		attackers.append(body)
 
 func attack_area_exited(body):
 	if body.name == "enemy":
-		attackers.append(body)
+		print("denem2e")
+		attackers.erase(body)
+
+func auto_focus(delta):
+	var playerrot = fmod(character.rotation.y,2 * PI)
+	if playerrot < 0:
+		playerrot += 2 * PI
+	
+	if attackers.size() == 4:
+		var a = atan2((attackers[0].global_transform.origin - global_transform.origin).normalized().x,(attackers[0].global_transform.origin - global_transform.origin).normalized().z)
+		var b = atan2((attackers[1].global_transform.origin - global_transform.origin).normalized().x,(attackers[1].global_transform.origin - global_transform.origin).normalized().z)
+		var c = atan2((attackers[2].global_transform.origin - global_transform.origin).normalized().x,(attackers[2].global_transform.origin - global_transform.origin).normalized().z)
+		var d = atan2((attackers[3].global_transform.origin - global_transform.origin).normalized().x,(attackers[3].global_transform.origin - global_transform.origin).normalized().z) 
+
+		if a < 0:
+			a += 2 * PI
+		if b < 0:
+			b += 2 * PI
+		if c < 0:
+			c += 2 * PI
+		if d < 0:
+			d += 2 * PI
+		
+		var line0 = str("player rot : ",playerrot)
+		var line1 = str(attackers[0].get_parent().name," : ",a)
+		var line2 = str(attackers[1].get_parent().name," : ",b)
+		var line3 = str(attackers[2].get_parent().name," : ",c)
+		var line4 = str(attackers[3].get_parent().name," : ",d)
+		textedit.text = str(line0,"\n",line1,"\n",line2,"\n",line3,"\n",line4)
+
+	if attackers.size() > 0:
+
+		if attackers.size() > 1:
+			for i in range(0, attackers.size()):
+				var enemy = attackers[i]
+				var enemydir = enemy.global_transform.origin - global_transform.origin
+				enemydir = enemydir.normalized()
+				if i != 0:
+					var tar_atan = atan2(target_dir.x,target_dir.z)
+					if tar_atan < 0:
+						tar_atan += 2 * PI 
+					var enem_atan = atan2(enemydir.x,enemydir.z)
+					if enem_atan < 0:
+						enem_atan += 2 * PI
+					var old_gap = abs(tar_atan - playerrot)
+					var new_gap = abs(enem_atan - playerrot)
+					if new_gap < old_gap:
+						target_dir = enemydir
+				else:
+					target_dir = enemydir
+
+		if current_attack != 0 && attackers.size() > 0:
+			character.rotation.y = lerp_angle(character.rotation.y, atan2(target_dir.x,target_dir.z),delta * 5)
+	

@@ -9,7 +9,7 @@ radius = 0.698738
 height = 2.0525
 
 [sub_resource type="CylinderShape" id=2]
-radius = 2.9463
+radius = 18.1207
 height = 3.30482
 
 [node name="player" type="KinematicBody"]
@@ -33,7 +33,6 @@ transform = Transform( -0.7, 0, -2.28089e-07, 0, 0.7, 0, 2.28089e-07, 0, -0.7, 0
 visible = false
 
 [node name="attack_area" type="Area" parent="."]
-visible = false
 
 [node name="CollisionShape" type="CollisionShape" parent="attack_area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6727, 0 )
