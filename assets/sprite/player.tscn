@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/script/player_movement.gd" type="Script" id=1]
 [ext_resource path="res://assets/geometry/character/character.tscn" type="PackedScene" id=2]
@@ -7,6 +7,10 @@
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.698738
 height = 2.0525
+
+[sub_resource type="CylinderShape" id=2]
+radius = 2.9463
+height = 3.30482
 
 [node name="player" type="KinematicBody"]
 script = ExtResource( 1 )
@@ -27,3 +31,23 @@ visible = false
 
 [node name="character_sword" parent="." instance=ExtResource( 3 )]
 transform = Transform( -0.7, 0, 2.28089e-07, 0, 0.7, 0, -2.28089e-07, 0, -0.7, 0, 0, 0 )
+
+[node name="Armature" parent="character_sword" index="0"]
+transform = Transform( 0.01, 0, 0, 0, -4.37114e-10, -0.01, 0, 0.01, -4.37114e-10, 0, 0, 0 )
+
+[node name="Skeleton" parent="character_sword/Armature" index="0"]
+bones/8/bound_children = [  ]
+
+[node name="BoneAttachment" parent="character_sword/Armature/Skeleton" index="5"]
+transform = Transform( 0.661138, 0.0318111, -0.749588, -0.743215, -0.108871, -0.660136, -0.102607, 0.993546, -0.0483351, 32.3288, 43.6386, -322.321 )
+
+[node name="sword" parent="character_sword/Armature/Skeleton/BoneAttachment/sword" index="0"]
+transform = Transform( -30.9524, -31.0861, -89.8647, 64.4697, -76.3295, 4.19887, -69.8991, -56.6353, 43.6662, -44.9782, 172.056, 53.6088 )
+
+[node name="attack_area" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="attack_area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6727, 0 )
+shape = SubResource( 2 )
+
+[editable path="character_sword"]
