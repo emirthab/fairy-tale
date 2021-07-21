@@ -11,12 +11,10 @@ var max_terminal_velocity : float = 54
 var gravity : float = 0.98
 var y_velocity : float
 
+onready var target = $character_sword/target
 var attackers = []
 var target_dir
 var current_attack = 0
-
-#debug
-onready var textedit = get_node("../TextEdit")
 
 onready var char_pivot = $character_pivot
 onready var puppet_pivot = $PuppetPivot
@@ -144,52 +142,22 @@ func attack_area_exited(body):
 		attackers.erase(body)
 
 func auto_focus(delta):
-	var playerrot = fmod(character.rotation.y,2 * PI)
-	if playerrot < 0:
-		playerrot += 2 * PI
-	
-	if attackers.size() == 4:
-		var a = atan2((attackers[0].global_transform.origin - global_transform.origin).normalized().x,(attackers[0].global_transform.origin - global_transform.origin).normalized().z)
-		var b = atan2((attackers[1].global_transform.origin - global_transform.origin).normalized().x,(attackers[1].global_transform.origin - global_transform.origin).normalized().z)
-		var c = atan2((attackers[2].global_transform.origin - global_transform.origin).normalized().x,(attackers[2].global_transform.origin - global_transform.origin).normalized().z)
-		var d = atan2((attackers[3].global_transform.origin - global_transform.origin).normalized().x,(attackers[3].global_transform.origin - global_transform.origin).normalized().z) 
-
-		if a < 0:
-			a += 2 * PI
-		if b < 0:
-			b += 2 * PI
-		if c < 0:
-			c += 2 * PI
-		if d < 0:
-			d += 2 * PI
-		
-		var line0 = str("player rot : ",playerrot)
-		var line1 = str(attackers[0].get_parent().name," : ",a)
-		var line2 = str(attackers[1].get_parent().name," : ",b)
-		var line3 = str(attackers[2].get_parent().name," : ",c)
-		var line4 = str(attackers[3].get_parent().name," : ",d)
-		textedit.text = str(line0,"\n",line1,"\n",line2,"\n",line3,"\n",line4)
 
 	if attackers.size() > 0:
-
-		if attackers.size() > 1:
-			for i in range(0, attackers.size()):
-				var enemy = attackers[i]
-				var enemydir = enemy.global_transform.origin - global_transform.origin
-				enemydir = enemydir.normalized()
-				if i != 0:
-					var tar_atan = atan2(target_dir.x,target_dir.z)
-					if tar_atan < 0:
-						tar_atan += 2 * PI 
-					var enem_atan = atan2(enemydir.x,enemydir.z)
-					if enem_atan < 0:
-						enem_atan += 2 * PI
-					var old_gap = abs(tar_atan - playerrot)
-					var new_gap = abs(enem_atan - playerrot)
-					if new_gap < old_gap:
-						target_dir = enemydir
-				else:
+		var oldenemy
+		for i in range(0, attackers.size()):
+			var newenemy = attackers[i]
+			var enemydir = newenemy.global_transform.origin - global_transform.origin
+			enemydir = enemydir.normalized()
+			if i != 0:
+				var new_gap = sqrt((newenemy.global_transform.origin.x - target.global_transform.origin.x)*(newenemy.global_transform.origin.x - target.global_transform.origin.x) + (newenemy.global_transform.origin.z - target.global_transform.origin.z)*(newenemy.global_transform.origin.z - target.global_transform.origin.z))
+				var old_gap = sqrt((oldenemy.global_transform.origin.x - target.global_transform.origin.x)*(oldenemy.global_transform.origin.x - target.global_transform.origin.x) + (oldenemy.global_transform.origin.z - target.global_transform.origin.z)*(oldenemy.global_transform.origin.z - target.global_transform.origin.z))
+				if new_gap < old_gap:
+					oldenemy = newenemy
 					target_dir = enemydir
+			else:
+				oldenemy = newenemy
+				target_dir = enemydir
 
 		if current_attack != 0 && attackers.size() > 0:
 			character.rotation.y = lerp_angle(character.rotation.y, atan2(target_dir.x,target_dir.z),delta * 5)

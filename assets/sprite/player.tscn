@@ -45,3 +45,6 @@ transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0 )
 
 [node name="RemotePivot" type="Spatial" parent="character_sword"]
 transform = Transform( 1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, 0, 0, 3.3051 )
+
+[node name="target" type="Position3D" parent="character_sword"]
+transform = Transform( 1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, 0, 2.57918, 3.86677 )
