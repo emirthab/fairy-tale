@@ -15,39 +15,34 @@ height = 3.30482
 [node name="player" type="KinematicBody"]
 script = ExtResource( 1 )
 
+[node name="PuppetPivot" type="Spatial" parent="."]
+
+[node name="Pivot" type="Spatial" parent="."]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0, 4.518 )
+
+[node name="Camera" type="Camera" parent="Pivot"]
+transform = Transform( 1, -2.92319e-08, -7.51118e-09, 3.01491e-08, 0.979024, 0.203744, 1.39778e-09, -0.203744, 0.979024, -1.53311, 3.10219, 7.12427 )
+far = 500.0
+
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 1.7014, 0 )
 shape = SubResource( 1 )
 
-[node name="Pivot" type="Spatial" parent="."]
-
-[node name="Camera" type="Camera" parent="Pivot"]
-transform = Transform( 1, 0, 0, 0, 0.955972, 0.293456, 0, -0.293456, 0.955972, -1.18023, 4.88922, 4.90566 )
-far = 500.0
-
-[node name="character" parent="." instance=ExtResource( 2 )]
+[node name="character_non_sword" parent="." instance=ExtResource( 2 )]
 transform = Transform( -0.7, 0, -2.28089e-07, 0, 0.7, 0, 2.28089e-07, 0, -0.7, 0, 0, 0 )
 visible = false
 
-[node name="character_sword" parent="." instance=ExtResource( 3 )]
-transform = Transform( -0.7, 0, 2.28089e-07, 0, 0.7, 0, -2.28089e-07, 0, -0.7, 0, 0, 0 )
-
-[node name="Armature" parent="character_sword" index="0"]
-transform = Transform( 0.01, 0, 0, 0, -4.37114e-10, -0.01, 0, 0.01, -4.37114e-10, 0, 0, 0 )
-
-[node name="Skeleton" parent="character_sword/Armature" index="0"]
-bones/8/bound_children = [  ]
-
-[node name="BoneAttachment" parent="character_sword/Armature/Skeleton" index="5"]
-transform = Transform( 0.661138, 0.0318111, -0.749588, -0.743215, -0.108871, -0.660136, -0.102607, 0.993546, -0.0483351, 32.3288, 43.6386, -322.321 )
-
-[node name="sword" parent="character_sword/Armature/Skeleton/BoneAttachment/sword" index="0"]
-transform = Transform( -30.9524, -31.0861, -89.8647, 64.4697, -76.3295, 4.19887, -69.8991, -56.6353, 43.6662, -44.9782, 172.056, 53.6088 )
-
 [node name="attack_area" type="Area" parent="."]
+visible = false
 
 [node name="CollisionShape" type="CollisionShape" parent="attack_area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6727, 0 )
 shape = SubResource( 2 )
 
-[editable path="character_sword"]
+[node name="character_pivot" type="Spatial" parent="."]
+
+[node name="character_sword" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0 )
+
+[node name="RemotePivot" type="Spatial" parent="character_sword"]
+transform = Transform( 1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, 0, 0, 3.3051 )

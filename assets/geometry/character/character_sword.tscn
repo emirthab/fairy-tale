@@ -2797,7 +2797,7 @@ tracks/50/keys = {
 [node name="character_sword" type="Spatial"]
 
 [node name="Armature" type="Spatial" parent="."]
-transform = Transform( 0.01, 0, 0, 0, -4.37114e-10, -0.01, 0, 0.01, -4.37114e-10, 0, 0, -8.29033 )
+transform = Transform( 0.01, 0, 0, 0, -4.37114e-10, -0.01, 0, 0.01, -4.37114e-10, 0, 0, 0 )
 
 [node name="Skeleton" type="Skeleton" parent="Armature"]
 bones/0/name = "mixamorig_hips"
@@ -2844,7 +2844,7 @@ bones/8/name = "mixamorig_left_arm"
 bones/8/parent = 7
 bones/8/rest = Transform( 0.851576, -0.510125, 0.120792, 0.310789, 0.305711, -0.899972, 0.422171, 0.803936, 0.418878, -5.92293e-07, 28.0716, 1.58014e-05 )
 bones/8/enabled = true
-bones/8/bound_children = [ NodePath("BoneAttachment") ]
+bones/8/bound_children = [  ]
 bones/9/name = "mixamorig_left_fore_arm"
 bones/9/parent = 8
 bones/9/rest = Transform( 0.728665, -0.684743, -0.0132283, 0.684675, 0.728782, -0.00982108, 0.0163654, -0.0019008, 0.999864, 2.99254e-06, 58.6395, 3.68435e-05 )
@@ -3072,7 +3072,7 @@ skin = SubResource( 2 )
 material/0 = null
 
 [node name="BoneAttachment" type="BoneAttachment" parent="Armature/Skeleton"]
-transform = Transform( 0.483871, 0.0128021, -0.875045, -0.867579, -0.12414, -0.481558, -0.114792, 0.992182, -0.0489602, 32.3775, 319.778, -322.394 )
+transform = Transform( 0.511119, 0.0247967, -0.859151, -0.852269, -0.114858, -0.51034, -0.111334, 0.993072, -0.0375718, 32.3235, 43.6359, -322.314 )
 bone_name = "mixamorig_left_arm"
 
 [node name="sword" type="Spatial" parent="Armature/Skeleton/BoneAttachment"]

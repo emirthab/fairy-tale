@@ -15,8 +15,11 @@ var attackers = []
 
 var current_attack = 0
 
-onready var character = $character_sword
+onready var char_pivot = $character_pivot
+onready var puppet_pivot = $PuppetPivot
 onready var pivot = $Pivot
+
+onready var character = $character_sword
 onready var raycast = $Pivot/Camera/RayCast
 onready var animplayer = character.get_node("AnimationPlayer")
 onready var mush = get_node("../enemy_mushroom")
@@ -44,15 +47,20 @@ func _input(event):
 	if event is InputEventMouseMotion && Input.get_mouse_mode() != 0:
 		var resultant = sqrt((event.relative.x * event.relative.x )+ (event.relative.y * event.relative.y ))
 		var rot = Vector3(-event.relative.y,-event.relative.x,0).normalized()
-		pivot.rotate_object_local(rot , resultant * mouse_sensivity)
-		pivot.rotation.z = clamp(pivot.rotation.z,deg2rad(-0),deg2rad(0))
-		pivot.rotation.x = clamp(pivot.rotation.x,deg2rad(-30),deg2rad(30))
+		puppet_pivot.rotate_object_local(rot , resultant * mouse_sensivity)
+		puppet_pivot.rotation.z = clamp(pivot.rotation.z,deg2rad(-0),deg2rad(0))
+		puppet_pivot.rotation.x = clamp(pivot.rotation.x,deg2rad(-30),deg2rad(30))
 
 func _physics_process(delta):
 	handle_movement(delta)
 
 
 func handle_movement(delta):
+	
+	pivot.rotation.y = lerp_angle(pivot.rotation.y, puppet_pivot.rotation.y ,delta * 10)
+	pivot.rotation.z = lerp_angle(pivot.rotation.z, puppet_pivot.rotation.z ,delta * 10)
+	#pivot.rotation = pivot.rotation.linear_interpolate(puppet_pivot.rotation,delta * 10)
+	pivot.global_transform.origin = pivot.global_transform.origin.linear_interpolate(character.get_node("RemotePivot").global_transform.origin,delta *2)
 	
 	if velocity != Vector3(0,-0.01,0) && !Input.is_action_pressed("speed_up") && is_on_floor() && current_attack == 0:
 		animplayer.play("walk")
