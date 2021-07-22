@@ -3059,8 +3059,7 @@ noise = SubResource( 21 )
 texture = SubResource( 22 )
 
 [sub_resource type="Gradient" id=24]
-offsets = PoolRealArray( 0.986207, 1 )
-colors = PoolColorArray( 0, 0, 0, 1, 0.896552, 0.896552, 0.896552, 1 )
+offsets = PoolRealArray( 0, 0.320755 )
 
 [sub_resource type="GradientTexture" id=25]
 gradient = SubResource( 24 )
