@@ -3059,7 +3059,8 @@ noise = SubResource( 21 )
 texture = SubResource( 22 )
 
 [sub_resource type="Gradient" id=24]
-offsets = PoolRealArray( 0, 0.320755 )
+offsets = PoolRealArray( 0.986207, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.896552, 0.896552, 0.896552, 1 )
 
 [sub_resource type="GradientTexture" id=25]
 gradient = SubResource( 24 )
@@ -3188,7 +3189,7 @@ void light() {
 
 }
 "
-graph_offset = Vector2( 326.04, 732.03 )
+graph_offset = Vector2( -537.78, 493.54 )
 modes/cull = 2
 nodes/fragment/0/position = Vector2( 1020, 400 )
 nodes/fragment/2/node = SubResource( 23 )
@@ -3224,8 +3225,8 @@ nodes/fragment/connections = PoolIntArray( 3, 0, 4, 1, 5, 0, 0, 1, 6, 0, 7, 0, 8
 [sub_resource type="ShaderMaterial" id=34]
 shader = SubResource( 33 )
 shader_param/Offset = Vector3( 1, 1, 1 )
-shader_param/Dissolve = Vector3( 0, 0, 0 )
-shader_param/gradient_offset = Vector3( -0.3, 0, 0 )
+shader_param/Dissolve = Vector3( 1, 1, 1 )
+shader_param/gradient_offset = Vector3( -1, 0, 0 )
 
 [node name="character_sword" type="Spatial"]
 
@@ -3242,7 +3243,7 @@ anims/walk = SubResource( 7 )
 [node name="Spatial" type="Spatial" parent="."]
 
 [node name="Armature" type="Spatial" parent="Spatial"]
-transform = Transform( 0.01, 0, 0, 0, -4.37114e-10, -0.01, 0, 0.01, -4.37114e-10, 0, 0, -2.75943 )
+transform = Transform( 0.01, 0, 0, 0, -4.37114e-10, -0.01, 0, 0.01, -4.37114e-10, 0, 0, 0 )
 
 [node name="Skeleton" type="Skeleton" parent="Spatial/Armature"]
 bones/0/name = "mixamorig_hips"
@@ -3289,7 +3290,7 @@ bones/8/name = "mixamorig_left_arm"
 bones/8/parent = 7
 bones/8/rest = Transform( 0.851576, -0.510125, 0.120792, 0.310789, 0.305711, -0.899972, 0.422171, 0.803936, 0.418878, -5.92293e-07, 28.0716, 1.58014e-05 )
 bones/8/enabled = true
-bones/8/bound_children = [ NodePath("BoneAttachment") ]
+bones/8/bound_children = [  ]
 bones/9/name = "mixamorig_left_fore_arm"
 bones/9/parent = 8
 bones/9/rest = Transform( 0.728665, -0.684743, -0.0132283, 0.684675, 0.728782, -0.00982108, 0.0163654, -0.0019008, 0.999864, 2.99254e-06, 58.6395, 3.68435e-05 )
@@ -3517,15 +3518,15 @@ skin = SubResource( 9 )
 material/0 = null
 
 [node name="BoneAttachment" type="BoneAttachment" parent="Spatial/Armature/Skeleton"]
-transform = Transform( 0.483871, 0.0128021, -0.875045, -0.867579, -0.12414, -0.481558, -0.114792, 0.992182, -0.0489602, 32.3775, 319.778, -322.394 )
+transform = Transform( 0.639214, 0.0318103, -0.768369, -0.76197, -0.10887, -0.638397, -0.103959, 0.993547, -0.0453515, 32.3288, 43.6386, -322.321 )
 bone_name = "mixamorig_left_arm"
 
 [node name="sword" type="Spatial" parent="Spatial/Armature/Skeleton/BoneAttachment"]
 
 [node name="sword" parent="Spatial/Armature/Skeleton/BoneAttachment/sword" instance=ExtResource( 6 )]
-transform = Transform( 87.8708, -45.3183, 15.0119, -46.5964, -74.5685, 47.6289, -10.3906, -48.8455, -86.639, -23.5183, 173.413, 63.368 )
+transform = Transform( -88.3916, -38.0145, -27.2436, 46.4048, -78.546, -40.9549, -5.82999, -48.8417, 87.067, -34.5927, 172.661, 44.7112 )
 
 [node name="slash" type="MeshInstance" parent="Spatial/Armature/Skeleton/BoneAttachment/sword/sword"]
-transform = Transform( -0.421979, 0.0264862, -0.00373927, -0.00295635, 0.0125651, 0.422633, 0.0265846, 0.421814, -0.0123547, 1.61933, 2.59068, -0.0920095 )
+transform = Transform( 0.416206, -0.0533619, 0.0520311, -0.0532535, -0.00641428, 0.419414, -0.0521408, -0.419402, -0.0130346, -1.661, 2.789, 0.217 )
 mesh = SubResource( 14 )
 material/0 = SubResource( 34 )

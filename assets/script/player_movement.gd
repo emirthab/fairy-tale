@@ -111,7 +111,6 @@ func handle_movement(delta):
 	if current_attack == 0:
 		move_and_slide(velocity,Vector3.UP)
 	if attack_moving:
-		print("moving")
 		var attack_dir = target.global_transform.origin - character.global_transform.origin
 		attack_dir = attack_dir.normalized() * delta * 10
 		attack_dir.y = -0.01
@@ -125,7 +124,6 @@ func handle_movement(delta):
 		var look = Vector3(global_transform.origin.x - direction.x,0,global_transform.origin.z - direction.z)
 		target_pivot.look_at(look,Vector3.UP)
 	else:
-		print("aaadasd")
 		var look = (global_transform.origin - character.transform.basis.z)
 		target_pivot.look_at(look,Vector3.UP)
 
@@ -174,7 +172,6 @@ func auto_focus(delta):
 	if current_attack != 0 && attackers.size() > 0:
 		character.rotation.y = lerp_angle(character.rotation.y, atan2(target_dir.x,target_dir.z),delta * 5)
 	elif current_attack != 0:
-		print("aaaa")
 		var dir = target.global_transform.origin - character.global_transform.origin
 		character.rotation.y = lerp_angle(character.rotation.y, atan2(dir.x,dir.z),delta * 5)
 

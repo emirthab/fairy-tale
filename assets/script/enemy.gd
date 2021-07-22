@@ -18,7 +18,14 @@ export var cooldown = 2
 
 var shoot_timer = Timer.new()
 
+export var health = 150
+
 func _ready():
+	var healthbar = preload("res://assets/sprite/enemy_healthbar.tscn").instance()
+	if $enemy.scale.x != 1:
+		healthbar.scale.x = 1 / $enemy.scale.x
+	$enemy.add_child(healthbar)
+
 	shoot_timer.wait_time = cooldown
 	shoot_timer.connect("timeout",self,"shoot") 
 	shoot_timer.one_shot = false
@@ -87,6 +94,7 @@ func walk_toward(point,delta):
 	$enemy/model/AnimationPlayer.play("walk")
 
 func shoot():
+	print("deneme")
 	$enemy/model/AnimationPlayer.play("attack")
 
 func finish_anim(anim_name):

@@ -73,19 +73,17 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.978915, 0 )
 shape = SubResource( 3 )
 
 [node name="enemy_mushroom" parent="." instance=ExtResource( 6 )]
-transform = Transform( -0.774525, 0, 0.632543, 0, 1, 0, -0.632543, 0, -0.774525, 0, 0, 15.3747 )
-script = null
+transform = Transform( 0.610422, 0, -0.792076, 0, 1, 0, 0.792076, 0, 0.610422, -4.8691, 0, 17.0734 )
 
 [node name="enemy_mushroom2" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5227, 0, 13.0029 )
-script = null
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.20115, 0, 13.0029 )
 
 [node name="enemy_mushroom3" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.160318, 0, 10.5385 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.160318, 0, 8.12842 )
 script = null
 
 [node name="enemy_mushroom4" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.76356, 0, 13.4606 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.02434, 0, 13.4606 )
 script = null
 
 [node name="WorldEnvironment" parent="." instance=ExtResource( 7 )]

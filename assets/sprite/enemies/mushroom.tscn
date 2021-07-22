@@ -41,11 +41,11 @@ transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0 )
 transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="enemy"]
-transform = Transform( 1.5, 0, 0, 0, -6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0.311141, -0.0210479 )
+transform = Transform( 1.5, 0, 0, 0, -6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0.470788, -0.0210479 )
 shape = SubResource( 1 )
 
 [node name="look_area" type="Area" parent="enemy"]
-transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 1.06802 )
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.35375, 1.06802 )
 
 [node name="CollisionPolygon" type="CollisionPolygon" parent="enemy/look_area"]
 transform = Transform( -2.44381e-07, 1.5, -6.55671e-08, 0, -6.55671e-08, -1.5, -1.5, -2.44381e-07, 1.06822e-14, 0, 0.512156, 0.594637 )
@@ -58,20 +58,21 @@ polygon = PoolVector2Array( 0.6, 0.995, 0.6, -1.017, -1.401, -1.968, -2.395, -1.
 material = SubResource( 2 )
 
 [node name="attack_area" type="Area" parent="enemy"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.226866, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="enemy/attack_area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.785919, 0.872949 )
 shape = SubResource( 3 )
 
 [node name="spawnpoint" type="Area" parent="."]
-transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0 )
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.302488, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="spawnpoint"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.788799, 0 )
 shape = SubResource( 4 )
 
 [node name="spawnarea" type="Area" parent="."]
-transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0 )
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 1.13433, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="spawnarea"]
 transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0 )
