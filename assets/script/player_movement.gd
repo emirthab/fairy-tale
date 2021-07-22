@@ -11,7 +11,8 @@ var max_terminal_velocity : float = 54
 var gravity : float = 0.98
 var y_velocity : float
 
-onready var target = $character_sword/target
+onready var target = $targetpivot/target
+onready var target_pivot = $targetpivot
 var attackers = []
 var target_dir
 var current_attack = 0
@@ -79,16 +80,16 @@ func handle_movement(delta):
 		speed = 5
 
 	direction = Vector3()
-	if Input.is_action_pressed("move_forward") && current_attack == 0:
+	if Input.is_action_pressed("move_forward"):
 		direction -= pivot.transform.basis.z
 		
-	elif Input.is_action_pressed("move_backward") && current_attack == 0:
+	elif Input.is_action_pressed("move_backward"):
 		direction += pivot.transform.basis.z
 		
-	if Input.is_action_pressed("move_left") && current_attack == 0:
+	if Input.is_action_pressed("move_left"):
 		direction -= pivot.transform.basis.x
 		
-	elif Input.is_action_pressed("move_right") && current_attack == 0:
+	elif Input.is_action_pressed("move_right"):
 		direction += pivot.transform.basis.x
 	
 	var accel = acceleration if is_on_floor() else air_acceleration
@@ -98,7 +99,7 @@ func handle_movement(delta):
 	else:
 		y_velocity = clamp(y_velocity - gravity, -max_terminal_velocity, max_terminal_velocity)
 
-	if Input.is_action_just_pressed("move_jump") and is_on_floor() && current_attack == 0:
+	if Input.is_action_just_pressed("move_jump") and is_on_floor():
 		animplayer.play("jump")
 		y_velocity = jump_power
 
@@ -106,14 +107,16 @@ func handle_movement(delta):
 	direction = direction.normalized()
 	velocity = direction * speed
 	velocity.y = y_velocity
-	move_and_slide(velocity,Vector3.UP)
+	if current_attack == 0:
+		move_and_slide(velocity,Vector3.UP)
 	
-	#if current_attack == 1:
-		#var dir = character.transform.basis.z * delta * 15
-		#character.rotation.y = lerp_angle(character.rotation.y, atan2(dir.x,dir.z),delta * 5)
-	if direction != Vector3(0,0,0):
+	if direction != Vector3(0,0,0) && current_attack == 0:
 		character.rotation.y = lerp_angle(character.rotation.y, atan2(direction.x,direction.z),delta * 5)
+		target_pivot.rotation.y = character.rotation.y
 		#$character.look_at(global_transform.origin - velocity, Vector3(0, 1, 0))
+	elif direction != Vector3(0,0,0):
+		var look = Vector3(global_transform.origin.x - direction.x,0,global_transform.origin.z - direction.z)
+		target_pivot.look_at(look,Vector3.UP)
 	
 func finish_attack(anim_name):
 	if anim_name == "attack":
@@ -133,12 +136,10 @@ func finish_attack(anim_name):
 
 func attack_area_entered(body):
 	if body.name == "enemy":
-		print("deneme")
 		attackers.append(body)
 
 func attack_area_exited(body):
 	if body.name == "enemy":
-		print("denem2e")
 		attackers.erase(body)
 
 func auto_focus(delta):
