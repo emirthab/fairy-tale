@@ -88,13 +88,6 @@ script = null
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.76356, 0, 13.4606 )
 script = null
 
-[node name="TextEdit" type="TextEdit" parent="."]
-margin_right = 519.0
-margin_bottom = 167.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="WorldEnvironment" parent="." instance=ExtResource( 7 )]
 
 [editable path="candy_house"]

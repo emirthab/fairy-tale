@@ -9,7 +9,7 @@ radius = 0.698738
 height = 2.0525
 
 [sub_resource type="CylinderShape" id=2]
-radius = 18.1207
+radius = 3.59283
 height = 3.30482
 
 [node name="player" type="KinematicBody"]
@@ -49,4 +49,10 @@ transform = Transform( 1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, 0, 0, 3.3051
 [node name="targetpivot" type="Spatial" parent="."]
 
 [node name="target" type="Position3D" parent="targetpivot"]
-transform = Transform( 0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 1.80543, 2.70674 )
+transform = Transform( 0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 1.80543, 3.2392 )
+
+[node name="CSGBox" type="CSGBox" parent="targetpivot/target"]
+visible = false
+width = 0.3
+height = 0.3
+depth = 0.3

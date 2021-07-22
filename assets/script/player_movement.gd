@@ -13,6 +13,7 @@ var y_velocity : float
 
 onready var target = $targetpivot/target
 onready var target_pivot = $targetpivot
+export var attack_moving = false
 var attackers = []
 var target_dir
 var current_attack = 0
@@ -109,15 +110,25 @@ func handle_movement(delta):
 	velocity.y = y_velocity
 	if current_attack == 0:
 		move_and_slide(velocity,Vector3.UP)
+	if attack_moving:
+		print("moving")
+		var attack_dir = target.global_transform.origin - character.global_transform.origin
+		attack_dir = attack_dir.normalized() * delta * 10
+		attack_dir.y = -0.01
+		move_and_collide(attack_dir)
 	
 	if direction != Vector3(0,0,0) && current_attack == 0:
 		character.rotation.y = lerp_angle(character.rotation.y, atan2(direction.x,direction.z),delta * 5)
 		target_pivot.rotation.y = character.rotation.y
-		#$character.look_at(global_transform.origin - velocity, Vector3(0, 1, 0))
+		#$character.look_at(global_transform.origin - velocity, Vector3.UP
 	elif direction != Vector3(0,0,0):
 		var look = Vector3(global_transform.origin.x - direction.x,0,global_transform.origin.z - direction.z)
 		target_pivot.look_at(look,Vector3.UP)
-	
+	else:
+		print("aaadasd")
+		var look = (global_transform.origin - character.transform.basis.z)
+		target_pivot.look_at(look,Vector3.UP)
+
 func finish_attack(anim_name):
 	if anim_name == "attack":
 		if Input.is_action_pressed("attack"):
@@ -160,6 +171,10 @@ func auto_focus(delta):
 				oldenemy = newenemy
 				target_dir = enemydir
 
-		if current_attack != 0 && attackers.size() > 0:
-			character.rotation.y = lerp_angle(character.rotation.y, atan2(target_dir.x,target_dir.z),delta * 5)
-	
+	if current_attack != 0 && attackers.size() > 0:
+		character.rotation.y = lerp_angle(character.rotation.y, atan2(target_dir.x,target_dir.z),delta * 5)
+	elif current_attack != 0:
+		print("aaaa")
+		var dir = target.global_transform.origin - character.global_transform.origin
+		character.rotation.y = lerp_angle(character.rotation.y, atan2(dir.x,dir.z),delta * 5)
+
