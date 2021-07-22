@@ -15,6 +15,7 @@ onready var target = $targetpivot/target
 onready var target_pivot = $targetpivot
 export var attack_moving = false
 var attackers = []
+var dashers = []
 var target_dir
 var current_attack = 0
 
@@ -29,14 +30,22 @@ onready var animplayer = character.get_node("AnimationPlayer")
 func _ready():
 	$attack_area.connect("body_entered",self,"attack_area_entered")
 	$attack_area.connect("body_exited",self,"attack_area_exited")
+	$dash_area.connect("body_entered",self,"dash_area_entered")
+	$dash_area.connect("body_exited",self,"dash_area_exited")
 	animplayer.connect("animation_finished",self,"finish_attack")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event):
 	if Input.is_action_pressed("attack"):
 		if current_attack == 0:
-			current_attack = 1
-			animplayer.play("attack")
+			if attackers.size() == 0 && dashers.size() > 0:
+				print("denmee")
+				current_attack = 3
+				animplayer.play("slash_2")
+			else:
+				print(attackers.size(), " : " , dashers.size())
+				current_attack = 1
+				animplayer.play("attack")
 
 	var just_pressed = event.is_pressed() and not event.is_echo()
 
@@ -150,28 +159,43 @@ func attack_area_entered(body):
 func attack_area_exited(body):
 	if body.name == "enemy":
 		attackers.erase(body)
+		
+func dash_area_entered(body):
+	if body.name == "enemy":
+		dashers.append(body)
+
+func dash_area_exited(body):
+	if body.name == "enemy":
+		dashers.erase(body)
 
 func auto_focus(delta):
 
 	if attackers.size() > 0:
-		var oldenemy
-		for i in range(0, attackers.size()):
-			var newenemy = attackers[i]
-			var enemydir = newenemy.global_transform.origin - global_transform.origin
-			enemydir = enemydir.normalized()
-			if i != 0:
-				var new_gap = sqrt((newenemy.global_transform.origin.x - target.global_transform.origin.x)*(newenemy.global_transform.origin.x - target.global_transform.origin.x) + (newenemy.global_transform.origin.z - target.global_transform.origin.z)*(newenemy.global_transform.origin.z - target.global_transform.origin.z))
-				var old_gap = sqrt((oldenemy.global_transform.origin.x - target.global_transform.origin.x)*(oldenemy.global_transform.origin.x - target.global_transform.origin.x) + (oldenemy.global_transform.origin.z - target.global_transform.origin.z)*(oldenemy.global_transform.origin.z - target.global_transform.origin.z))
-				if new_gap < old_gap:
-					oldenemy = newenemy
-					target_dir = enemydir
-			else:
-				oldenemy = newenemy
-				target_dir = enemydir
+		target_dir_calc(attackers)
 
-	if current_attack != 0 && attackers.size() > 0:
+	elif dashers.size() > 0:
+		target_dir_calc(dashers)
+
+	if current_attack != 0 && (attackers.size() > 0 || dashers.size() > 0):
 		character.rotation.y = lerp_angle(character.rotation.y, atan2(target_dir.x,target_dir.z),delta * 5)
+
 	elif current_attack != 0:
 		var dir = target.global_transform.origin - character.global_transform.origin
 		character.rotation.y = lerp_angle(character.rotation.y, atan2(dir.x,dir.z),delta * 5)
+
+func target_dir_calc(array):
+	var oldenemy
+	for i in range(0, array.size()):
+		var newenemy = array[i]
+		var enemydir = newenemy.global_transform.origin - global_transform.origin
+		enemydir = enemydir.normalized()
+		if i != 0:
+			var new_gap = sqrt((newenemy.global_transform.origin.x - target.global_transform.origin.x)*(newenemy.global_transform.origin.x - target.global_transform.origin.x) + (newenemy.global_transform.origin.z - target.global_transform.origin.z)*(newenemy.global_transform.origin.z - target.global_transform.origin.z))
+			var old_gap = sqrt((oldenemy.global_transform.origin.x - target.global_transform.origin.x)*(oldenemy.global_transform.origin.x - target.global_transform.origin.x) + (oldenemy.global_transform.origin.z - target.global_transform.origin.z)*(oldenemy.global_transform.origin.z - target.global_transform.origin.z))
+			if new_gap < old_gap:
+				oldenemy = newenemy
+				target_dir = enemydir
+		else:
+			oldenemy = newenemy
+			target_dir = enemydir
 
