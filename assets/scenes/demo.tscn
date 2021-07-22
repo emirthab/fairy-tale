@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/sprite/houses/cartoon_house.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sprite/houses/house_1.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/sprite/houses/candy_house.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/sprite/enemies/mushroom.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/WorldEnvironment.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/sprite/enemy_message.tscn" type="PackedScene" id=8]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.431373, 0.913725, 0.329412, 1 )
@@ -75,6 +76,9 @@ shape = SubResource( 3 )
 [node name="enemy_mushroom" parent="." instance=ExtResource( 6 )]
 transform = Transform( 0.610422, 0, -0.792076, 0, 1, 0, 0.792076, 0, 0.610422, -4.8691, 0, 17.0734 )
 
+[node name="message_baloon" parent="enemy_mushroom/enemy" index="4" instance=ExtResource( 8 )]
+transform = Transform( 0.635742, 0, -2.98023e-08, 0, 0.635742, 0, 2.98023e-08, 0, 0.635742, -0.261999, 1.08933, -0.488 )
+
 [node name="enemy_mushroom2" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.20115, 0, 13.0029 )
 
@@ -95,3 +99,5 @@ script = null
 [editable path="house_1"]
 
 [editable path="house_2"]
+
+[editable path="enemy_mushroom"]
