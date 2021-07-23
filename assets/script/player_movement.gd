@@ -1,5 +1,7 @@
 extends KinematicBody
 
+signal death_signal
+
 var velocity = Vector3()
 var direction = Vector3()
 var speed = 5
@@ -11,6 +13,10 @@ var max_terminal_velocity : float = 54
 var gravity : float = 0.98
 var y_velocity : float
 
+var death_env_blur_amount = 0.09
+var death_env_saturation = 0.13
+var death_env_brightness = 0.88
+
 export var health = 300
 export var hit_power_1 = 10
 export var hit_power_2 = 20
@@ -21,6 +27,7 @@ onready var target = $targetpivot/target
 onready var target_pivot = $targetpivot
 export var attack_moving = false
 
+var death = false
 var attackers = []
 var dashers = []
 var hitable = []
@@ -76,12 +83,13 @@ func _input(event):
 		puppet_pivot.rotation.x = clamp(puppet_pivot.rotation.x,deg2rad(-30),deg2rad(30))
 
 func _physics_process(delta):
+	if death:
+		death_envs(delta)
 	auto_focus(delta)
 	handle_movement(delta)
 
 
 func handle_movement(delta):
-
 	#pivot.rotation.z = lerp_angle(pivot.rotation.z, puppet_pivot.rotation.z ,delta * 10)
 	pivot.rotation.x = lerp_angle(pivot.rotation.x, puppet_pivot.rotation.x ,delta * 10)
 	pivot.rotation.y = lerp_angle(pivot.rotation.y, puppet_pivot.rotation.y ,delta * 10)
@@ -130,8 +138,10 @@ func handle_movement(delta):
 	direction = direction.normalized()
 	velocity = direction * speed
 	velocity.y = y_velocity
+
 	if current_attack == 0:
 		move_and_slide(velocity,Vector3.UP)
+
 	if attack_moving:
 		var attack_dir = target.global_transform.origin - character.global_transform.origin
 		attack_dir = attack_dir.normalized() * delta * 10
@@ -162,8 +172,9 @@ func finish_attack(anim_name):
 			animplayer.play("slash_2")
 		else:
 			current_attack = 0
-	elif anim_name == "slash_2":
+	elif anim_name == "slash_2" || anim_name == "hurt":
 		current_attack = 0
+		animplayer.playback_speed = 1.5
 
 func attack_area_entered(body):
 	if body.name == "enemy":
@@ -197,10 +208,10 @@ func auto_focus(delta):
 	elif dashers.size() > 0:
 		target_dir_calc(dashers)
 
-	if current_attack != 0 && (attackers.size() > 0 || dashers.size() > 0):
+	if current_attack != 0 && (attackers.size() > 0 || dashers.size() > 0) && !death:
 		character.rotation.y = lerp_angle(character.rotation.y, atan2(target_dir.x,target_dir.z),delta * 5)
 
-	elif current_attack != 0:
+	elif current_attack != 0 && !death:
 		var dir = target.global_transform.origin - character.global_transform.origin
 		character.rotation.y = lerp_angle(character.rotation.y, atan2(dir.x,dir.z),delta * 5)
 
@@ -238,5 +249,24 @@ func hit(hit_turn):
 			enemy.get_parent().hurt(_pow)
 
 func hurt(power):
-	print(power)
 	health -= power
+	current_attack = -1
+	animplayer.play("hurt")
+	animplayer.playback_speed = 3.4
+	if health <= 0:
+		death()
+
+func death_envs(delta):
+	var env = get_node("../WorldEnvironment").environment
+	if env.dof_blur_far_amount < death_env_blur_amount:
+		env.dof_blur_far_amount += delta * 0.01
+	if env.adjustment_saturation > death_env_saturation:
+		env.adjustment_saturation -= delta * 0.6
+	if env.adjustment_brightness > death_env_brightness:
+		env.adjustment_brightness -=  delta * 0.1
+	
+func death():
+	death = true
+	current_attack == -1
+	animplayer.play("death")
+	emit_signal("death_signal")

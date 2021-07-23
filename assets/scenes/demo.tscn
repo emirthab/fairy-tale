@@ -50,9 +50,11 @@ shape = SubResource( 3 )
 
 [node name="enemy_mushroom" parent="." instance=ExtResource( 6 )]
 transform = Transform( 0.610422, 0, -0.792076, 0, 1, 0, 0.792076, 0, 0.610422, -4.8691, 0, 17.0734 )
+hit_power = 35
 
 [node name="enemy_mushroom2" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.20115, 0, 13.0029 )
+hit_power = 35
 
 [node name="enemy_mushroom3" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.160318, 0, 8.12842 )
