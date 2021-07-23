@@ -16,7 +16,7 @@ albedo_color = Color( 1, 0, 0, 0.152941 )
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 0.449184, 1.01079, 0.798303 )
 
-[sub_resource type="SpatialMaterial" id=10]
+[sub_resource type="SpatialMaterial" id=4]
 render_priority = 1
 flags_transparent = true
 flags_unshaded = true
@@ -27,8 +27,8 @@ particles_anim_loop = false
 albedo_color = Color( 0.8, 0.8, 0.8, 1 )
 albedo_texture = ExtResource( 3 )
 
-[sub_resource type="QuadMesh" id=11]
-material = SubResource( 10 )
+[sub_resource type="QuadMesh" id=5]
+material = SubResource( 4 )
 size = Vector2( 3, 2.2 )
 
 [sub_resource type="BoxShape" id=6]
@@ -82,7 +82,7 @@ shape = SubResource( 3 )
 
 [node name="crosshair" type="MeshInstance" parent="enemy"]
 transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -4.57764e-05, 0.529376, 0 )
-mesh = SubResource( 11 )
+mesh = SubResource( 5 )
 material/0 = null
 
 [node name="spawnpoint" type="Area" parent="."]
@@ -104,3 +104,5 @@ transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0 )
 visible = false
 mesh = SubResource( 8 )
 material/0 = SubResource( 9 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]

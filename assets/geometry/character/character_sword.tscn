@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://assets/geometry/character/Materiais_009.material" type="Material" id=1]
 [ext_resource path="res://assets/geometry/character/Materiais_010.material" type="Material" id=2]
@@ -412,6 +412,20 @@ tracks/53/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/54/type = "method"
+tracks/54/path = NodePath("..")
+tracks/54/interp = 1
+tracks/54/loop_wrap = true
+tracks/54/imported = false
+tracks/54/enabled = true
+tracks/54/keys = {
+"times": PoolRealArray( 0.7 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 1 ],
+"method": "hit"
+} ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -1970,6 +1984,20 @@ tracks/53/keys = {
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ) ]
 }
+tracks/54/type = "method"
+tracks/54/path = NodePath("..")
+tracks/54/interp = 1
+tracks/54/loop_wrap = true
+tracks/54/imported = false
+tracks/54/enabled = true
+tracks/54/keys = {
+"times": PoolRealArray( 0.9 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 2 ],
+"method": "hit"
+} ]
+}
 
 [sub_resource type="Animation" id=6]
 length = 1.8
@@ -2374,7 +2402,7 @@ tracks/53/keys = {
 "times": PoolRealArray( 0, 0.793899, 1.05234, 1.27279, 1.6549, 1.8 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ), Vector3( 0, 0, 0 ), Vector3( 1, 1, 1 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ) ]
+"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ), Vector3( 0, 0, 0 ), Vector3( 0.6, 0.6, 0.6 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ) ]
 }
 tracks/54/type = "value"
 tracks/54/path = NodePath("Spatial/Armature/Skeleton/BoneAttachment/sword/sword/slash:material/0:shader_param/gradient_offset")
@@ -2411,6 +2439,20 @@ tracks/56/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector3( -82.712, 104.064, -96.868 ), Vector3( -82.712, 104.064, -96.868 ), Vector3( -88.2506, -163.161, -13.2401 ), Vector3( -88.2506, -163.161, -13.2401 ), Vector3( -82.712, 104.064, -96.868 ) ]
+}
+tracks/57/type = "method"
+tracks/57/path = NodePath("..")
+tracks/57/interp = 1
+tracks/57/loop_wrap = true
+tracks/57/imported = false
+tracks/57/enabled = true
+tracks/57/keys = {
+"times": PoolRealArray( 0.74 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 3 ],
+"method": "hit"
+} ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -3227,6 +3269,10 @@ shader_param/Offset = Vector3( 1, 1, 1 )
 shader_param/Dissolve = Vector3( 1, 1, 1 )
 shader_param/gradient_offset = Vector3( -1, 0, 0 )
 
+[sub_resource type="CylinderShape" id=35]
+radius = 2.00978
+height = 3.77358
+
 [node name="character_sword" type="Spatial"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -3289,7 +3335,7 @@ bones/8/name = "mixamorig_left_arm"
 bones/8/parent = 7
 bones/8/rest = Transform( 0.851576, -0.510125, 0.120792, 0.310789, 0.305711, -0.899972, 0.422171, 0.803936, 0.418878, -5.92293e-07, 28.0716, 1.58014e-05 )
 bones/8/enabled = true
-bones/8/bound_children = [  ]
+bones/8/bound_children = [ NodePath("BoneAttachment") ]
 bones/9/name = "mixamorig_left_fore_arm"
 bones/9/parent = 8
 bones/9/rest = Transform( 0.728665, -0.684743, -0.0132283, 0.684675, 0.728782, -0.00982108, 0.0163654, -0.0019008, 0.999864, 2.99254e-06, 58.6395, 3.68435e-05 )
@@ -3526,6 +3572,12 @@ bone_name = "mixamorig_left_arm"
 transform = Transform( -88.3916, -38.0145, -27.2436, 46.4048, -78.546, -40.9549, -5.82999, -48.8417, 87.067, -34.5927, 172.661, 44.7112 )
 
 [node name="slash" type="MeshInstance" parent="Spatial/Armature/Skeleton/BoneAttachment/sword/sword"]
-transform = Transform( 0.416206, -0.0533619, 0.0520311, -0.0532535, -0.00641428, 0.419414, -0.0521408, -0.419402, -0.0130346, -1.661, 2.789, 0.217 )
+transform = Transform( 0.416206, -0.0533619, 0.0520311, -0.0532535, -0.00641429, 0.419414, -0.0521408, -0.419402, -0.0130346, -1.661, 2.789, 0.217 )
 mesh = SubResource( 14 )
 material/0 = SubResource( 34 )
+
+[node name="hit_area" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="hit_area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.89462, 2.59399 )
+shape = SubResource( 35 )

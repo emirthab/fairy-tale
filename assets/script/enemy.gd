@@ -54,7 +54,7 @@ func _physics_process(delta):
 		if chase == true:
 			if player_attack_area == false:
 				walk_toward(player,delta)
-		elif player_attack_area == false:
+		elif player_attack_area == false && $enemy/model/AnimationPlayer.current_animation != "hurt":
 			$enemy/model/AnimationPlayer.play("idle")
 
 	var accel = acceleration if $enemy.is_on_floor() else air_acceleration
@@ -102,7 +102,6 @@ func walk_toward(point,delta):
 	$enemy/model/AnimationPlayer.play("walk")
 
 func shoot():
-	print("deneme")
 	$enemy/model/AnimationPlayer.play("attack")
 
 func finish_anim(anim_name):
@@ -111,3 +110,20 @@ func finish_anim(anim_name):
 func chase_delay_timeout():
 	if player_attack_area == false && walking_to_spawn == false:
 		chase = true
+
+func loop_meshes(parent) -> Array:
+	var arr = []
+	for child in parent.get_children():
+		if child.get_class() == "MeshInstance":
+			arr.append(child)
+		if child.get_child_count() > 0:
+			arr += loop_meshes(child)
+	return arr
+	
+func hurt(power):
+	if chase == false:
+		chase = true
+	health -= power
+	$enemy/model/AnimationPlayer.play("hurt")
+	
+	

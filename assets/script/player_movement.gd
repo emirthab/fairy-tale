@@ -11,11 +11,18 @@ var max_terminal_velocity : float = 54
 var gravity : float = 0.98
 var y_velocity : float
 
+export var hit_power_1 = 10
+export var hit_power_2 = 20
+export var hit_power_3 = 30
+export var power_chance_rate = 65
+
 onready var target = $targetpivot/target
 onready var target_pivot = $targetpivot
 export var attack_moving = false
+
 var attackers = []
 var dashers = []
+var hitable = []
 var target_dir
 var current_attack = 0
 
@@ -23,7 +30,10 @@ onready var char_pivot = $character_pivot
 onready var puppet_pivot = $PuppetPivot
 onready var pivot = $Pivot
 
-onready var character = $character_sword
+onready var character_non_sword = $character
+onready var character_sword = $character_sword
+onready var character = character_sword
+
 onready var raycast = $Pivot/Camera/RayCast
 onready var animplayer = character.get_node("AnimationPlayer")
 
@@ -32,18 +42,20 @@ func _ready():
 	$attack_area.connect("body_exited",self,"attack_area_exited")
 	$dash_area.connect("body_entered",self,"dash_area_entered")
 	$dash_area.connect("body_exited",self,"dash_area_exited")
-	animplayer.connect("animation_finished",self,"finish_attack")
+
+	character_sword.get_node("hit_area").connect("body_entered",self,"hit_area_entered")
+	character_sword.get_node("hit_area").connect("body_exited",self,"hit_area_exited")
+
+	character_sword.get_node("AnimationPlayer").connect("animation_finished",self,"finish_attack")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event):
 	if Input.is_action_pressed("attack"):
 		if current_attack == 0:
 			if attackers.size() == 0 && dashers.size() > 0:
-				print("denmee")
 				current_attack = 3
 				animplayer.play("slash_2")
 			else:
-				print(attackers.size(), " : " , dashers.size())
 				current_attack = 1
 				animplayer.play("attack")
 
@@ -168,6 +180,14 @@ func dash_area_exited(body):
 	if body.name == "enemy":
 		dashers.erase(body)
 
+func hit_area_entered(body):
+	if body.name == "enemy":
+		hitable.append(body)
+
+func hit_area_exited(body):
+	if body.name == "enemy":
+		hitable.erase(body)
+
 func auto_focus(delta):
 
 	if attackers.size() > 0:
@@ -199,3 +219,46 @@ func target_dir_calc(array):
 			oldenemy = newenemy
 			target_dir = enemydir
 
+func calc_power(power) -> int:
+	var arr = []
+	for i in range(power / 2,power + power / 2 + 1):
+		arr.append(i)
+	
+	var rate = float(100) / float(power_chance_rate)
+	var left = int(arr.size() / rate)
+	
+	var arr_left = []
+	
+	for x in range(0,left-1):
+		var obj = arr[0]
+		arr_left.append(obj)
+		arr.remove(0)
+	
+	randomize()
+	var rand =randi() % 100
+	
+	if rand <= power_chance_rate:
+		randomize()
+		var rand2 = randi() % arr.size()
+		return(arr[rand2])
+	else:
+		randomize()
+		var rand2 = randi() % arr_left.size()
+		return(arr_left[rand2])
+
+func hit(hit_turn):
+
+	if hitable.size() > 0:
+		var _pow = 0
+
+		if hit_turn == 1:
+			_pow = calc_power(hit_power_1)
+
+		if hit_turn == 2:
+			_pow = calc_power(hit_power_2)
+
+		if hit_turn == 3:
+			_pow = calc_power(hit_power_3)
+
+		for enemy in hitable:
+			enemy.get_parent().hurt(_pow)

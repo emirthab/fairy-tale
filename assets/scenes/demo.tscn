@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/sprite/houses/cartoon_house.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sprite/houses/house_1.tscn" type="PackedScene" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://assets/sprite/houses/candy_house.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/sprite/enemies/mushroom.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/WorldEnvironment.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/sprite/enemy_message.tscn" type="PackedScene" id=8]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.431373, 0.913725, 0.329412, 1 )
@@ -23,38 +22,14 @@ size = Vector2( 100, 100 )
 [node name="candy_house" parent="." instance=ExtResource( 5 )]
 transform = Transform( 0.201916, 0, 0, 0, 0.201916, 0, 0, 0, 0.201916, 0, 0, 0 )
 
-[node name="house-lod0" parent="candy_house" index="0"]
-visible = true
-
-[node name="house-lod1" parent="candy_house" index="1"]
-visible = false
-
 [node name="cartoon_house" parent="." instance=ExtResource( 1 )]
 transform = Transform( 2.0028, 0, 0, 0, 2.0028, 0, 0, 0, 2.0028, 12.1907, 0, 12.6379 )
-
-[node name="house-lod0" parent="cartoon_house" index="0"]
-visible = true
-
-[node name="house-lod1" parent="cartoon_house" index="1"]
-visible = false
 
 [node name="house_1" parent="." instance=ExtResource( 2 )]
 transform = Transform( -1.06202, 0, -0.385454, 0, 1.12981, 0, 0.385454, 0, -1.06202, 2.70944, 0, 28.6343 )
 
-[node name="house-lod0" parent="house_1" index="0"]
-visible = true
-
-[node name="model-lod1" parent="house_1" index="1"]
-visible = false
-
 [node name="house_2" parent="." instance=ExtResource( 3 )]
 transform = Transform( -3.79599, 0, -0.507235, 0, 3.82973, 0, 0.507235, 0, -3.79599, -8.89472, -0.643759, 16.5133 )
-
-[node name="house-lod0" parent="house_2" index="0"]
-visible = true
-
-[node name="house-lod1" parent="house_2" index="1"]
-visible = false
 
 [node name="player" parent="." instance=ExtResource( 4 )]
 transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -0.0737319, 0.170789, 13.4494 )
@@ -76,9 +51,6 @@ shape = SubResource( 3 )
 [node name="enemy_mushroom" parent="." instance=ExtResource( 6 )]
 transform = Transform( 0.610422, 0, -0.792076, 0, 1, 0, 0.792076, 0, 0.610422, -4.8691, 0, 17.0734 )
 
-[node name="message_baloon" parent="enemy_mushroom/enemy" index="4" instance=ExtResource( 8 )]
-transform = Transform( 0.635742, 0, -2.98023e-08, 0, 0.635742, 0, 2.98023e-08, 0, 0.635742, -0.261999, 1.08933, -0.488 )
-
 [node name="enemy_mushroom2" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.20115, 0, 13.0029 )
 
@@ -91,13 +63,3 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.02434, 0, 13.4606 )
 script = null
 
 [node name="WorldEnvironment" parent="." instance=ExtResource( 7 )]
-
-[editable path="candy_house"]
-
-[editable path="cartoon_house"]
-
-[editable path="house_1"]
-
-[editable path="house_2"]
-
-[editable path="enemy_mushroom"]
