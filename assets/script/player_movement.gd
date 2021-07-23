@@ -1,7 +1,5 @@
 extends KinematicBody
 
-signal death_signal
-
 var velocity = Vector3()
 var direction = Vector3()
 var speed = 5
@@ -12,10 +10,6 @@ var jump_power = 18
 var max_terminal_velocity : float = 54
 var gravity : float = 0.98
 var y_velocity : float
-
-var death_env_blur_amount = 0.09
-var death_env_saturation = 0.13
-var death_env_brightness = 0.88
 
 export var health = 300
 export var hit_power_1 = 10
@@ -83,8 +77,6 @@ func _input(event):
 		puppet_pivot.rotation.x = clamp(puppet_pivot.rotation.x,deg2rad(-30),deg2rad(30))
 
 func _physics_process(delta):
-	if death:
-		death_envs(delta)
 	auto_focus(delta)
 	handle_movement(delta)
 
@@ -254,19 +246,4 @@ func hurt(power):
 	animplayer.play("hurt")
 	animplayer.playback_speed = 3.4
 	if health <= 0:
-		death()
-
-func death_envs(delta):
-	var env = get_node("../WorldEnvironment").environment
-	if env.dof_blur_far_amount < death_env_blur_amount:
-		env.dof_blur_far_amount += delta * 0.01
-	if env.adjustment_saturation > death_env_saturation:
-		env.adjustment_saturation -= delta * 0.6
-	if env.adjustment_brightness > death_env_brightness:
-		env.adjustment_brightness -=  delta * 0.1
-	
-func death():
-	death = true
-	current_attack == -1
-	animplayer.play("death")
-	emit_signal("death_signal")
+		Death.death()

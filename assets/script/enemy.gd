@@ -25,7 +25,7 @@ var chase_delay_timer = Timer.new()
 export var health = 150
 
 func _ready():
-	player.connect("death_signal",self,"on_player_death")
+	Death.connect("death_signal",self,"on_player_death")
 	var healthbar = preload("res://assets/sprite/enemy_healthbar.tscn").instance()
 	if $enemy.scale.x != 1:
 		healthbar.scale.x = 1 / $enemy.scale.x
@@ -81,16 +81,16 @@ func spawn_exited(body):
 		chase = false
 
 func look_entered(body):
-	if body == player && !player.death:
+	if body == player && !Death.dead:
 		chase = true
 		
 func attack_exited(body):
-	if body == player && !player.death:
+	if body == player && !Death.dead:
 		player_attack_area = false
 		chase_delay_timer.start()
 	
 func attack_entered(body):
-	if body == player && !player.death:
+	if body == player && !Death.dead:
 		chase = false
 		$enemy/model/AnimationPlayer.play("idle")
 		$enemy/model/AnimationPlayer.play("attack")
@@ -105,14 +105,14 @@ func walk_toward(point,delta):
 	$enemy/model/AnimationPlayer.play("walk")
 
 func shoot():
-	if !player.death:
+	if !Death.dead:
 		$enemy/model/AnimationPlayer.play("attack")
 
 func finish_anim(anim_name):
 	$enemy/model/AnimationPlayer.play("idle")
 
 func chase_delay_timeout():
-	if player_attack_area == false && walking_to_spawn == false && !player.death:
+	if player_attack_area == false && walking_to_spawn == false && !Death.dead:
 		chase = true
 
 #func loop_meshes(parent) -> Array:
@@ -133,7 +133,7 @@ func hurt(power):
 func hit():
 	var power = CalcPower.get_power(hit_power,power_chance)
 	if player_attack_area:
-		if !player.death:
+		if !Death.dead:
 			player.hurt(power)
 
 func on_player_death():

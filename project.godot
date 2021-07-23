@@ -33,6 +33,7 @@ config/icon="res://icon.png"
 [autoload]
 
 CalcPower="*res://assets/script/calc_power.gd"
+Death="*res://assets/script/death.gd"
 
 [editor_plugins]
 
