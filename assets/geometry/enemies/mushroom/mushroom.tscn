@@ -6,7 +6,7 @@
 [ext_resource path="res://assets/geometry/enemies/mushroom/Material_004.material" type="Material" id=4]
 [ext_resource path="res://assets/geometry/enemies/hurt_material.tres" type="Material" id=5]
 
-[sub_resource type="ArrayMesh" id=5]
+[sub_resource type="ArrayMesh" id=1]
 resource_local_to_scene = true
 surfaces/0 = {
 "aabb": AABB( -0.133929, -0.00387672, -0.174102, 0.267858, 0.426805, 0.258568 ),
@@ -57,7 +57,7 @@ surfaces/3 = {
 "vertex_count": 37
 }
 
-[sub_resource type="Skin" id=6]
+[sub_resource type="Skin" id=2]
 bind_count = 20
 bind/0/name = "bone"
 bind/0/bone = -1
@@ -120,7 +120,7 @@ bind/19/name = "feet_r_end"
 bind/19/bone = -1
 bind/19/pose = Transform( -1, -6.19031e-07, -1.04836e-07, -2.84217e-14, -0.166977, 0.985961, -6.27845e-07, 0.985961, 0.166977, -0.0745864, -0.0320091, -0.00243526 )
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=3]
 length = 0.875
 tracks/0/type = "transform"
 tracks/0/path = NodePath("Mushroom/Skeleton:bone_3_end")
@@ -317,8 +317,22 @@ tracks/24/keys = {
 "update": 1,
 "values": [ ExtResource( 4 ) ]
 }
+tracks/25/type = "method"
+tracks/25/path = NodePath("../..")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/keys = {
+"times": PoolRealArray( 0.7 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hit"
+} ]
+}
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=4]
 length = 1.04167
 tracks/0/type = "transform"
 tracks/0/path = NodePath("Mushroom/Skeleton:bone_3_end")
@@ -468,7 +482,7 @@ tracks/20/imported = true
 tracks/20/enabled = true
 tracks/20/keys = PoolRealArray( 0, 1, 0, 0, -0.00990146, -8.14603e-08, 0, 0, 1, 1, 1, 1, 1.04167, 1, 0, 0, -0.00990146, -8.14603e-08, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="SpatialMaterial" id=12]
+[sub_resource type="SpatialMaterial" id=5]
 resource_name = "Material.001"
 next_pass = ExtResource( 5 )
 params_cull_mode = 2
@@ -477,19 +491,19 @@ roughness = 0.690035
 transmission_enabled = true
 transmission = Color( 0.843137, 0.756863, 0.603922, 1 )
 
-[sub_resource type="SpatialMaterial" id=13]
+[sub_resource type="SpatialMaterial" id=6]
 resource_name = "Material.002"
 params_cull_mode = 2
 albedo_color = Color( 1, 1, 1, 0 )
 roughness = 0.690035
 
-[sub_resource type="SpatialMaterial" id=14]
+[sub_resource type="SpatialMaterial" id=7]
 resource_name = "Material.003"
 params_diffuse_mode = 2
 params_cull_mode = 2
 albedo_color = Color( 0.793326, 0, 0.102052, 0 )
 
-[sub_resource type="SpatialMaterial" id=15]
+[sub_resource type="SpatialMaterial" id=8]
 resource_name = "Material.004"
 params_cull_mode = 2
 albedo_color = Color( 0.473326, 0.430208, 0.352095, 0 )
@@ -653,7 +667,7 @@ tracks/21/keys = {
 "times": PoolRealArray( 0, 0.34, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ ExtResource( 1 ), SubResource( 12 ), ExtResource( 1 ) ]
+"values": [ ExtResource( 1 ), SubResource( 5 ), ExtResource( 1 ) ]
 }
 tracks/22/type = "value"
 tracks/22/path = NodePath("Mushroom/Skeleton/Cogumelo:mesh:surface_2/material")
@@ -665,7 +679,7 @@ tracks/22/keys = {
 "times": PoolRealArray( 0, 0.34, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 2 ), SubResource( 13 ), ExtResource( 2 ) ]
+"values": [ ExtResource( 2 ), SubResource( 6 ), ExtResource( 2 ) ]
 }
 tracks/23/type = "value"
 tracks/23/path = NodePath("Mushroom/Skeleton/Cogumelo:mesh:surface_3/material")
@@ -677,7 +691,7 @@ tracks/23/keys = {
 "times": PoolRealArray( 0, 0.34, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 3 ), SubResource( 14 ), ExtResource( 3 ) ]
+"values": [ ExtResource( 3 ), SubResource( 7 ), ExtResource( 3 ) ]
 }
 tracks/24/type = "value"
 tracks/24/path = NodePath("Mushroom/Skeleton/Cogumelo:mesh:surface_4/material")
@@ -689,7 +703,7 @@ tracks/24/keys = {
 "times": PoolRealArray( 0, 0.34, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 4 ), SubResource( 15 ), ExtResource( 4 ) ]
+"values": [ ExtResource( 4 ), SubResource( 8 ), ExtResource( 4 ) ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -1198,8 +1212,8 @@ bones/19/enabled = true
 bones/19/bound_children = [  ]
 
 [node name="Cogumelo" type="MeshInstance" parent="Mushroom/Skeleton"]
-mesh = SubResource( 5 )
-skin = SubResource( 6 )
+mesh = SubResource( 1 )
+skin = SubResource( 2 )
 material/0 = null
 material/1 = null
 material/2 = null
@@ -1207,8 +1221,8 @@ material/3 = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 2.0
-anims/attack = SubResource( 7 )
-anims/death = SubResource( 8 )
+anims/attack = SubResource( 3 )
+anims/death = SubResource( 4 )
 anims/hurt = SubResource( 9 )
 anims/idle = SubResource( 10 )
 anims/walk = SubResource( 11 )

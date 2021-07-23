@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/script/player_movement.gd" type="Script" id=1]
 [ext_resource path="res://assets/geometry/character/character.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/geometry/character/character_sword.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/sprite/player_interface.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.698738
@@ -66,3 +67,5 @@ visible = false
 width = 0.3
 height = 0.3
 depth = 0.3
+
+[node name="ui" parent="." instance=ExtResource( 4 )]

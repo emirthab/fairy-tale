@@ -13,6 +13,8 @@ var gravity : float = 0.98
 var acceleration = 5
 var air_acceleration : float = 5
 
+export var hit_power = 7
+export var power_chance = 60
 export var speed = 6
 export var cooldown = 2
 export var chase_delay = 1.6
@@ -111,19 +113,22 @@ func chase_delay_timeout():
 	if player_attack_area == false && walking_to_spawn == false:
 		chase = true
 
-func loop_meshes(parent) -> Array:
-	var arr = []
-	for child in parent.get_children():
-		if child.get_class() == "MeshInstance":
-			arr.append(child)
-		if child.get_child_count() > 0:
-			arr += loop_meshes(child)
-	return arr
-	
+#func loop_meshes(parent) -> Array:
+#	var arr = []
+#	for child in parent.get_children():
+#		if child.get_class() == "MeshInstance":
+#			arr.append(child)
+#		if child.get_child_count() > 0:
+#			arr += loop_meshes(child)
+#	return arr
+
 func hurt(power):
 	if chase == false:
 		chase = true
 	health -= power
 	$enemy/model/AnimationPlayer.play("hurt")
-	
-	
+
+func hit():
+	var power = CalcPower.get_power(hit_power,power_chance)
+	if player_attack_area:
+		player.hurt(power)

@@ -30,6 +30,10 @@ config/name="Candy Girl Escape"
 run/main_scene="res://assets/scenes/demo.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+CalcPower="*res://assets/script/calc_power.gd"
+
 [editor_plugins]
 
 enabled=PoolStringArray( "waterways", "zylann.hterrain", "zylann.scatter" )
