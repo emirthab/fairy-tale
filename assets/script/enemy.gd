@@ -1,6 +1,9 @@
 extends Spatial
 
 onready var player = get_node("../player")
+var on_spawn_point = true
+
+onready var animplayer = $enemy/model/AnimationPlayer
 var chase = false
 var walking_to_spawn = false
 var player_attack_area = false
@@ -41,8 +44,9 @@ func _ready():
 	chase_delay_timer.one_shot = true
 	add_child(chase_delay_timer)
 
-	$enemy/model/AnimationPlayer.connect("animation_finished",self,"finish_anim")
-	$spawnpoint.connect("body_entered",self,"spawnpoint_entered")	
+	animplayer.connect("animation_finished",self,"finish_anim")
+	$spawnpoint.connect("body_entered",self,"spawnpoint_entered")
+	$spawnpoint.connect("body_exited",self,"spawnpoint_exited")
 	$enemy/look_area.connect("body_entered",self,"look_entered")
 	$spawnarea.connect("body_exited",self,"spawn_exited")
 	$enemy/attack_area.connect("body_entered",self,"attack_entered")
@@ -57,8 +61,8 @@ func _physics_process(delta):
 		if chase == true:
 			if player_attack_area == false:
 				walk_toward(player,delta)
-		elif player_attack_area == false && $enemy/model/AnimationPlayer.current_animation != "hurt":
-			$enemy/model/AnimationPlayer.play("idle")
+		elif player_attack_area == false && animplayer.current_animation != "hurt":
+			animplayer.play("idle")
 
 	var accel = acceleration if $enemy.is_on_floor() else air_acceleration
 	if $enemy.is_on_floor():
@@ -73,7 +77,11 @@ func _physics_process(delta):
 	$enemy.move_and_slide(velocity,Vector3.UP)
 
 func spawnpoint_entered(body):
+	on_spawn_point = true
 	walking_to_spawn = false
+
+func spawnpoint_exited(body):
+	on_spawn_point = false
 
 func spawn_exited(body):
 	if body == $enemy:
@@ -88,28 +96,27 @@ func attack_exited(body):
 	if body == player && !Death.dead:
 		player_attack_area = false
 		chase_delay_timer.start()
+		shoot_timer.stop()
 	
 func attack_entered(body):
 	if body == player && !Death.dead:
 		chase = false
-		$enemy/model/AnimationPlayer.play("idle")
-		$enemy/model/AnimationPlayer.play("attack")
+		animplayer.play("idle")
 		shoot_timer.start()
 		player_attack_area = true
 
 func walk_toward(point,delta):
 	direction = point.global_transform.origin - $enemy.global_transform.origin
 	$enemy.rotation.y = lerp_angle($enemy.rotation.y, atan2(direction.x,direction.z),delta * 5)
-	#$enemy.look_at($enemy.global_transform.origin - direction,Vector3.UP)
-	#$enemy.move_and_collide(direction.normalized() * speed * delta)
-	$enemy/model/AnimationPlayer.play("walk")
+	animplayer.play("walk")
 
 func shoot():
 	if !Death.dead:
-		$enemy/model/AnimationPlayer.play("attack")
+		if animplayer.current_animation != "hurt":
+			animplayer.play("attack")
 
 func finish_anim(anim_name):
-	$enemy/model/AnimationPlayer.play("idle")
+	animplayer.play("idle")
 
 func chase_delay_timeout():
 	if player_attack_area == false && walking_to_spawn == false && !Death.dead:
@@ -128,16 +135,18 @@ func hurt(power):
 	if chase == false:
 		chase = true
 	health -= power
-	$enemy/model/AnimationPlayer.play("hurt")
+	print(power)
+	animplayer.play("hurt")
 
 func hit():
 	var power = CalcPower.get_power(hit_power,power_chance)
 	if player_attack_area:
 		if !Death.dead:
-			player.hurt(power)
+			player.get_node("combat").hurt(power)
 
 func on_player_death():
 	chase = false
-	walking_to_spawn = true
+	if on_spawn_point == false:
+		walking_to_spawn = true
 	player_attack_area = false
 	

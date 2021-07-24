@@ -1,6 +1,6 @@
 extends Control
 
-onready var player = get_parent()
+onready var player = get_parent().get_node("combat")
 onready var max_health = player.get("health")
 var current_health
 

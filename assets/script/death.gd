@@ -9,7 +9,7 @@ var death_env_saturation = 0.13
 var death_env_brightness = 0.88
 
 onready var scene = get_tree().get_current_scene()
-onready var player = scene.get_node("player")
+onready var player = scene.get_node("player/combat")
 
 func _physics_process(delta):
 	if dead:

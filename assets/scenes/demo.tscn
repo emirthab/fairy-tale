@@ -24,12 +24,15 @@ transform = Transform( 0.201916, 0, 0, 0, 0.201916, 0, 0, 0, 0.201916, 0, 0, 0 )
 
 [node name="cartoon_house" parent="." instance=ExtResource( 1 )]
 transform = Transform( 2.0028, 0, 0, 0, 2.0028, 0, 0, 0, 2.0028, 12.1907, 0, 12.6379 )
+lod_0_max_distance = 0.0
 
 [node name="house_1" parent="." instance=ExtResource( 2 )]
 transform = Transform( -1.06202, 0, -0.385454, 0, 1.12981, 0, 0.385454, 0, -1.06202, 2.70944, 0, 28.6343 )
+lod_0_max_distance = 0.0
 
 [node name="house_2" parent="." instance=ExtResource( 3 )]
 transform = Transform( -3.79599, 0, -0.507235, 0, 3.82973, 0, 0.507235, 0, -3.79599, -8.89472, -0.643759, 16.5133 )
+lod_0_max_distance = 0.0
 
 [node name="player" parent="." instance=ExtResource( 4 )]
 transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -0.0737319, 0.170789, 13.4494 )
@@ -48,20 +51,10 @@ material/0 = null
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.978915, 0 )
 shape = SubResource( 3 )
 
-[node name="enemy_mushroom" parent="." instance=ExtResource( 6 )]
-transform = Transform( 0.610422, 0, -0.792076, 0, 1, 0, 0.792076, 0, 0.610422, -4.8691, 0, 17.0734 )
-hit_power = 35
-
-[node name="enemy_mushroom2" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.20115, 0, 13.0029 )
-hit_power = 35
-
-[node name="enemy_mushroom3" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.160318, 0, 8.12842 )
-script = null
-
 [node name="enemy_mushroom4" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.02434, 0, 13.4606 )
-script = null
+
+[node name="enemy_mushroom5" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.06445, 0, 8.47851 )
 
 [node name="WorldEnvironment" parent="." instance=ExtResource( 7 )]

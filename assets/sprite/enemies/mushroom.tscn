@@ -4,19 +4,19 @@
 [ext_resource path="res://assets/script/enemy.gd" type="Script" id=2]
 [ext_resource path="res://assets/textures/crosshair.png" type="Texture" id=3]
 
-[sub_resource type="CapsuleShape" id=2]
+[sub_resource type="CapsuleShape" id=1]
 radius = 0.161036
 height = 0.347164
 
-[sub_resource type="SpatialMaterial" id=3]
+[sub_resource type="SpatialMaterial" id=2]
 flags_transparent = true
 flags_unshaded = true
 albedo_color = Color( 1, 0, 0, 0.152941 )
 
-[sub_resource type="BoxShape" id=4]
+[sub_resource type="BoxShape" id=3]
 extents = Vector3( 0.449184, 1.01079, 0.798303 )
 
-[sub_resource type="SpatialMaterial" id=5]
+[sub_resource type="SpatialMaterial" id=4]
 render_priority = 1
 flags_transparent = true
 flags_unshaded = true
@@ -27,22 +27,22 @@ particles_anim_loop = false
 albedo_color = Color( 0.8, 0.8, 0.8, 1 )
 albedo_texture = ExtResource( 3 )
 
-[sub_resource type="QuadMesh" id=6]
-material = SubResource( 5 )
+[sub_resource type="QuadMesh" id=5]
+material = SubResource( 4 )
 size = Vector2( 3, 2.2 )
 
-[sub_resource type="BoxShape" id=7]
+[sub_resource type="BoxShape" id=6]
 
-[sub_resource type="CylinderShape" id=8]
+[sub_resource type="CylinderShape" id=7]
 radius = 9.65767
 height = 2.04785
 
-[sub_resource type="CylinderMesh" id=9]
+[sub_resource type="CylinderMesh" id=8]
 top_radius = 9.66
 bottom_radius = 9.66
 height = 2.05
 
-[sub_resource type="SpatialMaterial" id=10]
+[sub_resource type="SpatialMaterial" id=9]
 flags_transparent = true
 flags_unshaded = true
 albedo_color = Color( 0.886275, 0.854902, 0.34902, 0.0666667 )
@@ -58,7 +58,7 @@ transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="enemy"]
 transform = Transform( 1.5, 0, 0, 0, -6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0.470788, -0.0210479 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="look_area" type="Area" parent="enemy"]
 transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.35375, 1.06802 )
@@ -71,18 +71,18 @@ polygon = PoolVector2Array( 0.600073, 0.994777, 0.600074, -1.01663, -1.40052, -1
 transform = Transform( -2.44381e-07, 1.5, -6.55671e-08, 0, -6.55671e-08, -1.5, -1.5, -2.44381e-07, 1.06822e-14, 0, -0.484502, 0.595 )
 visible = false
 polygon = PoolVector2Array( 0.6, 0.995, 0.6, -1.017, -1.401, -1.968, -2.395, -1.503, -2.698, -0.617, -2.698, 0.616, -2.406, 1.6, -1.401, 2.011 )
-material = SubResource( 3 )
+material = SubResource( 2 )
 
 [node name="attack_area" type="Area" parent="enemy"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.226866, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="enemy/attack_area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.785919, 0.872949 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="crosshair" type="MeshInstance" parent="enemy"]
 transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -4.57764e-05, 0.529376, 0 )
-mesh = SubResource( 6 )
+mesh = SubResource( 5 )
 material/0 = null
 
 [node name="spawnpoint" type="Area" parent="."]
@@ -90,19 +90,19 @@ transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.302488, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="spawnpoint"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.788799, 0 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="spawnarea" type="Area" parent="."]
 transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 1.13433, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="spawnarea"]
 transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0 )
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 
 [node name="MeshInstance" type="MeshInstance" parent="spawnarea"]
 transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0 )
 visible = false
-mesh = SubResource( 9 )
-material/0 = SubResource( 10 )
+mesh = SubResource( 8 )
+material/0 = SubResource( 9 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
