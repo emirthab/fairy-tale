@@ -71,7 +71,11 @@ func _physics_process(delta: float) -> void:
 		lod = 1
 	elif distance < lod_2_max_distance:
 		lod = 2
+		if has_node("StaticBody"):
+			get_node("StaticBody/CollisionShape").disabled = true
 	else:
+		if has_node("StaticBody"):
+			get_node("StaticBody/CollisionShape").disabled = true
 		# Hide the LOD object entirely.
 		lod = 3
 
