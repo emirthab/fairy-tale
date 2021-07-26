@@ -1,13 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/main_terrain_data/data.hterrain" type="Resource" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=2]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=3]
+[ext_resource path="res://assets/main_terrain_data/main_albedo_bump.packed_texarr" type="TextureArray" id=4]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 3 )
 mode = 1
-textures = [ [ null ], [ null ] ]
+textures = [ [ ExtResource( 4 ) ], [ null ] ]
 
 [node name="main" type="Spatial"]
 

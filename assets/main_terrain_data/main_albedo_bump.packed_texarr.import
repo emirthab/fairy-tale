@@ -1,0 +1,18 @@
+[remap]
+
+importer="hterrain_packed_texture_array_importer"
+type="TextureArray"
+path.s3tc="res://.import/main_albedo_bump.packed_texarr-18ad8a28d48afa704a431187a9b01a4d.s3tc.texarr"
+path.etc2="res://.import/main_albedo_bump.packed_texarr-18ad8a28d48afa704a431187a9b01a4d.etc2.texarr"
+
+[deps]
+
+source_file="res://assets/main_terrain_data/main_albedo_bump.packed_texarr"
+dest_files=[ "res://.import/main_albedo_bump.packed_texarr-18ad8a28d48afa704a431187a9b01a4d.s3tc.texarr", "res://.import/main_albedo_bump.packed_texarr-18ad8a28d48afa704a431187a9b01a4d.etc2.texarr" ]
+
+[params]
+
+compress/mode=1
+flags/repeat=1
+flags/filter=true
+flags/mipmaps=true
