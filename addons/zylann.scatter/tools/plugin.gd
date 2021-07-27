@@ -177,6 +177,7 @@ func _physics_process(delta):
 						_node.add_child(instance)
 						instance.owner = get_editor_interface().get_edited_scene_root()
 						_placed_instances.append(instance)
+						_mouse_pressed = false
 	
 		elif action == ACTION_ERASE:
 			var time_before = OS.get_ticks_usec()
@@ -231,8 +232,7 @@ func _physics_process(delta):
 
 #func resnap_instances():
 #	pass
-
-
+		
 func _redo_paint(parent_path, instances_data):
 	if _disable_undo:
 		return
