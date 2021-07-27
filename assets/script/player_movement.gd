@@ -65,17 +65,18 @@ func _physics_process(delta):
 		speed = normal_speed
 
 	direction = Vector3()
-	if Input.is_action_pressed("move_forward"):
-		direction -= pivot.transform.basis.z
-		
-	elif Input.is_action_pressed("move_backward"):
-		direction += pivot.transform.basis.z
-		
-	if Input.is_action_pressed("move_left"):
-		direction -= pivot.transform.basis.x
-		
-	elif Input.is_action_pressed("move_right"):
-		direction += pivot.transform.basis.x
+	if !$combat.attacking() && !$combat.hurting():
+		if Input.is_action_pressed("move_forward"):
+			direction -= pivot.transform.basis.z
+			
+		elif Input.is_action_pressed("move_backward"):
+			direction += pivot.transform.basis.z
+			
+		if Input.is_action_pressed("move_left"):
+			direction -= pivot.transform.basis.x
+			
+		elif Input.is_action_pressed("move_right"):
+			direction += pivot.transform.basis.x
 	
 	var accel = acceleration if is_on_floor() else air_acceleration
 
@@ -93,13 +94,14 @@ func _physics_process(delta):
 	velocity = direction * speed
 	velocity.y = y_velocity
 
-	if !$combat.attacking() && !$combat.hurting():
-		move_and_slide(velocity,Vector3.UP)
+	move_and_slide(velocity,Vector3.UP)
 	
 	if direction != Vector3(0,0,0) && $combat.current_attack == 0:
 		character.rotation.y = lerp_angle(character.rotation.y, atan2(direction.x,direction.z),delta * 5)
-		$combat.target_pivot.rotation.y = character.rotation.y
+		#$combat.target_pivot.rotation.y = character.rotation.y
 		#$character.look_at(global_transform.origin - velocity, Vector3.UP
+		var look = (global_transform.origin - character.transform.basis.z)
+		$combat.target_pivot.look_at(look,Vector3.UP)
 	elif direction != Vector3(0,0,0):
 		var look = Vector3(global_transform.origin.x - direction.x,0,global_transform.origin.z - direction.z)
 		$combat.target_pivot.look_at(look,Vector3.UP)
