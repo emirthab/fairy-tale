@@ -91,13 +91,15 @@ func _physics_process(delta):
 		animplayer.play("jump")
 		y_velocity = jump_power
 	
-	if $ui.game:
+	if !$combat.attacking() and !$combat.hurting() and $ui.game:
 		velocity = velocity.linear_interpolate(direction * speed, acceleration * delta)
 		direction = direction.normalized()
 		velocity = direction * speed
+	elif $ui.game:
+		velocity = Vector3(0,0,0)
 	velocity.y = y_velocity
 
-	if !$combat.attacking() and !$combat.hurting() and !Death.dead:
+	if !Death.dead:
 		move_and_slide(velocity,Vector3.UP)
 		
 	if direction != Vector3(0,0,0) && $combat.current_attack == 0 and $ui.game:
