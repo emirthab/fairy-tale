@@ -61,4 +61,3 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.06445, 0, 8.47851 )
 stream = ExtResource( 8 )
 volume_db = -6.582
 autoplay = true
-stream_paused = true
