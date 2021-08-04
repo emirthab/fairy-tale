@@ -23,20 +23,17 @@ onready var character = character_sword
 
 onready var animplayer = character.get_node("AnimationPlayer")
 
-func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
 func _input(event):
 
 	var just_pressed = event.is_pressed() and not event.is_echo()
 
-	if Input.is_key_pressed(KEY_ESCAPE) and just_pressed:
+	if Input.is_key_pressed(KEY_ESCAPE) and just_pressed and $ui.game:
 		if Input.get_mouse_mode() == 0:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
-	if event is InputEventMouseMotion && Input.get_mouse_mode() != 0:
+	if event is InputEventMouseMotion && Input.get_mouse_mode() != 0 and $ui.game:
 		var resultant = sqrt((event.relative.x * event.relative.x )+ (event.relative.y * event.relative.y ))
 		var rot = Vector3(-event.relative.y,-event.relative.x,0).normalized()
 		puppet_pivot.rotate_object_local(rot , resultant * mouse_sensivity)
@@ -44,11 +41,17 @@ func _input(event):
 		puppet_pivot.rotation.x = clamp(puppet_pivot.rotation.x,deg2rad(-30),deg2rad(30))
 
 func _physics_process(delta):
-	#pivot.rotation.z = lerp_angle(pivot.rotation.z, puppet_pivot.rotation.z ,delta * 10)
-	pivot.rotation.x = lerp_angle(pivot.rotation.x, puppet_pivot.rotation.x ,delta * 10)
-	pivot.rotation.y = lerp_angle(pivot.rotation.y, puppet_pivot.rotation.y ,delta * 10)
-	#pivot.rotation = pivot.rotation.linear_interpolate(puppet_pivot.rotation,delta * 10)
-	pivot.global_transform.origin = pivot.global_transform.origin.linear_interpolate(character.get_node("RemotePivot").global_transform.origin,delta *2)
+	if $ui.game:
+		#pivot.rotation.z = lerp_angle(pivot.rotation.z, puppet_pivot.rotation.z ,delta * 10)
+		pivot.rotation.x = lerp_angle(pivot.rotation.x, puppet_pivot.rotation.x ,delta * 10)
+		pivot.rotation.y = lerp_angle(pivot.rotation.y, puppet_pivot.rotation.y ,delta * 10)
+		#pivot.rotation = pivot.rotation.linear_interpolate(puppet_pivot.rotation,delta * 10)
+		pivot.global_transform.origin = pivot.global_transform.origin.linear_interpolate(character.get_node("RemotePivot").global_transform.origin,delta *2)
+	
+	elif $ui.camera_interpolation:
+		pivot.rotation.x = lerp_angle(pivot.rotation.x, puppet_pivot.rotation.x ,delta * 2)
+		pivot.rotation.y = lerp_angle(pivot.rotation.y, puppet_pivot.rotation.y ,delta * 2)
+		pivot.global_transform.origin = pivot.global_transform.origin.linear_interpolate(character.get_node("RemotePivot").global_transform.origin,delta *1)
 	
 	if velocity != Vector3(0,-0.01,0) && !Input.is_action_pressed("speed_up") && is_on_floor() && !$combat.attacking() && !$combat.hurting():
 		animplayer.play("walk")
@@ -85,18 +88,20 @@ func _physics_process(delta):
 	else:
 		y_velocity = clamp(y_velocity - gravity, -max_terminal_velocity, max_terminal_velocity)
 
-	if Input.is_action_just_pressed("move_jump") and is_on_floor() && !$combat.hurting() && !$combat.attacking():
+	if Input.is_action_just_pressed("move_jump") and is_on_floor() && !$combat.hurting() && !$combat.attacking() and $ui.game:
 		animplayer.play("jump")
 		y_velocity = jump_power
-
-	velocity = velocity.linear_interpolate(direction * speed, acceleration * delta)
-	direction = direction.normalized()
-	velocity = direction * speed
+	
+	if $ui.game:
+		velocity = velocity.linear_interpolate(direction * speed, acceleration * delta)
+		direction = direction.normalized()
+		velocity = direction * speed
 	velocity.y = y_velocity
 
+	
 	move_and_slide(velocity,Vector3.UP)
 	
-	if direction != Vector3(0,0,0) && $combat.current_attack == 0:
+	if direction != Vector3(0,0,0) && $combat.current_attack == 0 and $ui.game:
 		character.rotation.y = lerp_angle(character.rotation.y, atan2(direction.x,direction.z),delta * 5)
 		#$combat.target_pivot.rotation.y = character.rotation.y
 		#$character.look_at(global_transform.origin - velocity, Vector3.UP

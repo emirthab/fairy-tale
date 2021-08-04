@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/sprite/houses/cartoon_house.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sprite/houses/house_1.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/sprite/houses/candy_house.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/sprite/enemies/mushroom.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/WorldEnvironment.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/sound/theme_sound.ogg" type="AudioStream" id=8]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.431373, 0.913725, 0.329412, 1 )
@@ -32,7 +33,7 @@ transform = Transform( -1.06202, 0, -0.385454, 0, 1.12981, 0, 0.385454, 0, -1.06
 transform = Transform( -3.79599, 0, -0.507235, 0, 3.82973, 0, 0.507235, 0, -3.79599, -8.89472, -0.643759, 16.5133 )
 
 [node name="player" parent="." instance=ExtResource( 4 )]
-transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -0.0737319, 0.170789, 13.4494 )
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 27.212, -0.0452888, 21.7388 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.846537, 0.53233, 0, -0.53233, 0.846537, 0, 0, 0 )
@@ -55,3 +56,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.02434, 0, 13.4606 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.06445, 0, 8.47851 )
 
 [node name="WorldEnvironment" parent="." instance=ExtResource( 7 )]
+
+[node name="theme_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -6.582
+autoplay = true
+stream_paused = true

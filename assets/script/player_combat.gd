@@ -34,11 +34,13 @@ var current_attack = 0
 onready var character = movement.get_node("character_sword")
 onready var animplayer = character.get_node("AnimationPlayer")
 
+onready var ui = get_node("../ui")
+
 func _input(event):
 	if Input.is_action_just_released("attack"):
 		timer.start()
 
-	if Input.is_action_pressed("attack"):
+	if Input.is_action_pressed("attack") and ui.game:
 		next_attack = true
 		if current_attack == 0 && !hurting():
 			if attackers.size() == 0 && dashers.size() > 0:

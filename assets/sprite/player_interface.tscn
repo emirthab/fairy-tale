@@ -1,8 +1,10 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/textures/healtbar/player_healthbar_inside.png" type="Texture" id=1]
 [ext_resource path="res://assets/textures/healtbar/player_healthbar_outside.png" type="Texture" id=2]
 [ext_resource path="res://assets/script/player_interface.gd" type="Script" id=3]
+[ext_resource path="res://assets/textures/logo.png" type="Texture" id=4]
+[ext_resource path="res://assets/textures/play_button.png" type="Texture" id=5]
 
 [sub_resource type="VisualShaderNodeVectorOp" id=1]
 operator = 2
@@ -180,3 +182,38 @@ texture = ExtResource( 1 )
 position = Vector2( 143.83, 25.4628 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 2 )
+
+[node name="main_anchor" type="Control" parent="."]
+anchor_left = 0.246
+anchor_top = 0.005
+anchor_right = 0.743
+anchor_bottom = 0.792
+margin_left = 0.095993
+margin_top = -2.38419e-07
+margin_right = 0.167969
+margin_bottom = -0.200043
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="logo" type="Sprite" parent="main_anchor"]
+position = Vector2( 252.231, 154.928 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="Button" type="Button" parent="main_anchor"]
+anchor_left = 0.327
+anchor_top = 0.599
+anchor_right = 0.687
+anchor_bottom = 0.936
+margin_left = -0.208939
+margin_top = -0.216125
+margin_right = 428.551
+margin_bottom = 371.72
+rect_scale = Vector2( 0.3, 0.3 )
+icon = ExtResource( 5 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_down" from="main_anchor/Button" to="." method="_on_Button_button_down"]
