@@ -67,18 +67,18 @@ func _physics_process(delta):
 		speed = normal_speed
 
 	direction = Vector3()
-	if !$combat.attacking() && !$combat.hurting():
-		if Input.is_action_pressed("move_forward"):
-			direction -= pivot.transform.basis.z
-			
-		elif Input.is_action_pressed("move_backward"):
-			direction += pivot.transform.basis.z
-			
-		if Input.is_action_pressed("move_left"):
-			direction -= pivot.transform.basis.x
-			
-		elif Input.is_action_pressed("move_right"):
-			direction += pivot.transform.basis.x
+	
+	if Input.is_action_pressed("move_forward"):
+		direction -= pivot.transform.basis.z
+		
+	elif Input.is_action_pressed("move_backward"):
+		direction += pivot.transform.basis.z
+		
+	if Input.is_action_pressed("move_left"):
+		direction -= pivot.transform.basis.x
+		
+	elif Input.is_action_pressed("move_right"):
+		direction += pivot.transform.basis.x
 	
 	var accel = acceleration if is_on_floor() else air_acceleration
 
@@ -97,7 +97,7 @@ func _physics_process(delta):
 		velocity = direction * speed
 	velocity.y = y_velocity
 
-	if !Death.dead:
+	if !$combat.attacking() and !$combat.hurting() and !Death.dead:
 		move_and_slide(velocity,Vector3.UP)
 		
 	if direction != Vector3(0,0,0) && $combat.current_attack == 0 and $ui.game:

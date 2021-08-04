@@ -22,14 +22,17 @@ export var speed = 6
 export var cooldown = 2
 export var chase_delay = 1.6
 
+var delta_ = 0
+
 var shoot_timer = Timer.new()
 var chase_delay_timer = Timer.new()
+
+var healthbar = preload("res://assets/sprite/enemy_healthbar.tscn").instance()
 
 export var health = 150
 
 func _ready():
 	Death.connect("death_signal",self,"on_player_death")
-	var healthbar = preload("res://assets/sprite/enemy_healthbar.tscn").instance()
 	if $enemy.scale.x != 1:
 		healthbar.scale.x = 1 / $enemy.scale.x
 	$enemy.add_child(healthbar)
@@ -135,8 +138,17 @@ func hurt(power):
 	if chase == false:
 		chase = true
 	health -= power
-	print(power)
 	animplayer.play("hurt")
+	if health <= 0:
+		animplayer.play("death")
+		$enemy/lock.visible = false
+		healthbar.queue_free()
+		var combat = player.get_node("combat")
+		combat.attackers.erase($enemy)
+		combat.dashers.erase($enemy)
+		combat.hitable.erase($enemy)
+		$enemy.name = "enemy-dead"
+		set_script(null)
 
 func hit():
 	var power = CalcPower.get_power(hit_power,power_chance)
@@ -149,4 +161,4 @@ func on_player_death():
 	if on_spawn_point == false:
 		walking_to_spawn = true
 	player_attack_area = false
-	
+

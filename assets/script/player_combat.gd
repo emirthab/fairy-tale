@@ -75,8 +75,6 @@ func _ready():
 	character.get_node("AnimationPlayer").connect("animation_finished",self,"finish_attack")
 
 func _physics_process(delta):
-	print(current_attack)
-
 	if animplayer.current_animation != "slash_2":
 		attack_moving = false
 
@@ -114,20 +112,29 @@ func finish_attack(anim_name):
 		current_attack = 0
 
 func target_dir_calc(array):
-	var oldenemy
+	var oldenemy = null
 	for i in range(0, array.size()):
 		var newenemy = array[i]
 		var enemydir = newenemy.global_transform.origin - movement.global_transform.origin
 		enemydir = enemydir.normalized()
+		newenemy.get_node("lock").visible = false
 		if i != 0:
-			var new_gap = sqrt((newenemy.global_transform.origin.x - target.global_transform.origin.x)*(newenemy.global_transform.origin.x - target.global_transform.origin.x) + (newenemy.global_transform.origin.z - target.global_transform.origin.z)*(newenemy.global_transform.origin.z - target.global_transform.origin.z))
-			var old_gap = sqrt((oldenemy.global_transform.origin.x - target.global_transform.origin.x)*(oldenemy.global_transform.origin.x - target.global_transform.origin.x) + (oldenemy.global_transform.origin.z - target.global_transform.origin.z)*(oldenemy.global_transform.origin.z - target.global_transform.origin.z))
+			var n_tx = (newenemy.global_transform.origin.x - target.global_transform.origin.x)
+			var n_tz = (newenemy.global_transform.origin.z - target.global_transform.origin.z)
+			var new_gap = sqrt(n_tx * n_tx + n_tz * n_tz)
+			
+			var o_tx = (oldenemy.global_transform.origin.x - target.global_transform.origin.x)
+			var o_tz = (oldenemy.global_transform.origin.z - target.global_transform.origin.z)
+			var old_gap = sqrt(o_tx * o_tx + o_tz * o_tz)
+			
 			if new_gap < old_gap:
 				oldenemy = newenemy
 				target_dir = enemydir
 		else:
 			oldenemy = newenemy
 			target_dir = enemydir
+	if oldenemy:
+		oldenemy.get_node("lock").visible = true
 
 func auto_focus(delta):
 
@@ -190,6 +197,7 @@ func attack_area_entered(body):
 func attack_area_exited(body):
 	if body.name == "enemy":
 		attackers.erase(body)
+		body.get_node("lock").visible = false
 		
 func dash_area_entered(body):
 	if body.name == "enemy":
@@ -198,6 +206,7 @@ func dash_area_entered(body):
 func dash_area_exited(body):
 	if body.name == "enemy":
 		dashers.erase(body)
+		body.get_node("lock").visible = false
 
 func hit_area_entered(body):
 	if body.name == "enemy":
@@ -208,7 +217,6 @@ func hit_area_exited(body):
 		hitable.erase(body)
 		
 func play_sound(sound):
-	print("deneme")
 	match sound:
 		1:
 			so1.play()

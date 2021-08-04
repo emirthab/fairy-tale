@@ -51,6 +51,12 @@ shape = SubResource( 1 )
 [node name="character_sword" parent="." instance=ExtResource( 3 )]
 transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0 )
 
+[node name="Skeleton" parent="character_sword/Spatial/Armature" index="0"]
+bones/8/bound_children = [ NodePath("BoneAttachment") ]
+
+[node name="BoneAttachment" parent="character_sword/Spatial/Armature/Skeleton" index="5"]
+transform = Transform( 0.661138, 0.0318111, -0.749588, -0.743215, -0.108871, -0.660136, -0.102607, 0.993546, -0.0483351, 32.3288, 43.6386, -322.321 )
+
 [node name="sword" parent="character_sword/Spatial/Armature/Skeleton/BoneAttachment/sword" index="0"]
 transform = Transform( -45.2213, -65.2573, -60.8007, 81.8618, -57.4319, 0.758405, -35.4143, -49.4281, 79.3907, -25.684, 158.267, 77.5526 )
 
@@ -95,14 +101,18 @@ depth = 0.3
 
 [node name="hit_1" type="AudioStreamPlayer" parent="sounds"]
 stream = SubResource( 4 )
+volume_db = -3.95
 
 [node name="hit_2" type="AudioStreamPlayer" parent="sounds"]
 stream = SubResource( 5 )
+volume_db = -3.95
 
 [node name="hit_3" type="AudioStreamPlayer" parent="sounds"]
 stream = SubResource( 6 )
+volume_db = -3.95
 
 [node name="hurt" type="AudioStreamPlayer" parent="sounds"]
 stream = SubResource( 7 )
+volume_db = -3.95
 
 [editable path="character_sword"]
