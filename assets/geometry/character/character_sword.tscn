@@ -419,9 +419,12 @@ tracks/54/loop_wrap = true
 tracks/54/imported = false
 tracks/54/enabled = true
 tracks/54/keys = {
-"times": PoolRealArray( 0.7 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
 "values": [ {
+"args": [ 1 ],
+"method": "play_sound"
+}, {
 "args": [ 1 ],
 "method": "hit"
 } ]
@@ -1226,6 +1229,20 @@ tracks/53/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector3( -82.712, 104.064, -96.868 ) ]
+}
+tracks/54/type = "method"
+tracks/54/path = NodePath("../combat")
+tracks/54/interp = 1
+tracks/54/loop_wrap = true
+tracks/54/imported = false
+tracks/54/enabled = true
+tracks/54/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 4 ],
+"method": "play_sound"
+} ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -2932,9 +2949,12 @@ tracks/54/loop_wrap = true
 tracks/54/imported = false
 tracks/54/enabled = true
 tracks/54/keys = {
-"times": PoolRealArray( 0.9 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0.75, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
 "values": [ {
+"args": [ 2 ],
+"method": "play_sound"
+}, {
 "args": [ 2 ],
 "method": "hit"
 } ]
@@ -3388,9 +3408,12 @@ tracks/57/loop_wrap = true
 tracks/57/imported = false
 tracks/57/enabled = true
 tracks/57/keys = {
-"times": PoolRealArray( 0.74 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0.67, 0.74 ),
+"transitions": PoolRealArray( 1, 1 ),
 "values": [ {
+"args": [ 3 ],
+"method": "play_sound"
+}, {
 "args": [ 3 ],
 "method": "hit"
 } ]
@@ -4553,13 +4576,13 @@ skin = SubResource( 11 )
 material/0 = null
 
 [node name="BoneAttachment" type="BoneAttachment" parent="Spatial/Armature/Skeleton"]
-transform = Transform( 0.639214, 0.0318103, -0.768369, -0.76197, -0.10887, -0.638397, -0.103959, 0.993547, -0.0453515, 32.3288, 43.6386, -322.321 )
+transform = Transform( 0.627108, 0.578831, -0.521237, -0.776977, 0.512221, -0.365974, 0.0551525, 0.634495, 0.770957, 14.6401, -15.5227, -331.829 )
 bone_name = "mixamorig_left_arm"
 
 [node name="sword" type="Spatial" parent="Spatial/Armature/Skeleton/BoneAttachment"]
 
 [node name="sword" parent="Spatial/Armature/Skeleton/BoneAttachment/sword" instance=ExtResource( 6 )]
-transform = Transform( -88.3916, -38.0145, -27.2436, 46.4048, -78.546, -40.9549, -5.82999, -48.8417, 87.067, -34.5927, 172.661, 44.7112 )
+transform = Transform( -98.0522, -12.5427, 15.1294, -11.5823, -25.314, -96.0481, 15.8771, -95.9269, 23.3678, -63.9653, 99.1762, 88.1707 )
 
 [node name="slash" type="MeshInstance" parent="Spatial/Armature/Skeleton/BoneAttachment/sword/sword"]
 transform = Transform( 0.416206, -0.0533619, 0.0520311, -0.0532535, -0.00641429, 0.419414, -0.0521408, -0.419402, -0.0130346, -1.661, 2.789, 0.217 )

@@ -27,6 +27,6 @@ func death_envs(delta):
 
 func death():
 	dead = true
-	player.current_attack == -1
+	player.current_attack = -1
 	player.animplayer.play("death")
 	emit_signal("death_signal")

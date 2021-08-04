@@ -2,7 +2,7 @@ extends Node
 
 onready var movement = get_parent()
 
-export var health = 300
+export var health = 100
 export var hit_power_1 = 10
 export var hit_power_2 = 20
 export var hit_power_3 = 30
@@ -30,11 +30,17 @@ var hitable = []
 var target_dir
 var current_attack = 0
 
-#will change
 onready var character = movement.get_node("character_sword")
 onready var animplayer = character.get_node("AnimationPlayer")
 
 onready var ui = get_node("../ui")
+
+onready var sounds = get_node("../sounds")
+
+onready var so1 = sounds.get_node("hit_1")
+onready var so2 = sounds.get_node("hit_2")
+onready var so3 = sounds.get_node("hit_3")
+onready var so4 = sounds.get_node("hurt")
 
 func _input(event):
 	if Input.is_action_just_released("attack"):
@@ -69,6 +75,7 @@ func _ready():
 	character.get_node("AnimationPlayer").connect("animation_finished",self,"finish_attack")
 
 func _physics_process(delta):
+	print(current_attack)
 
 	if animplayer.current_animation != "slash_2":
 		attack_moving = false
@@ -199,3 +206,15 @@ func hit_area_entered(body):
 func hit_area_exited(body):
 	if body.name == "enemy":
 		hitable.erase(body)
+		
+func play_sound(sound):
+	print("deneme")
+	match sound:
+		1:
+			so1.play()
+		2:
+			so2.play()
+		3:
+			so3.play()
+		4:
+			so4.play()

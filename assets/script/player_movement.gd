@@ -17,7 +17,6 @@ onready var char_pivot = $character_pivot
 onready var puppet_pivot = $PuppetPivot
 onready var pivot = $Pivot
 
-onready var character_non_sword = $character
 onready var character_sword = $character_sword
 onready var character = character_sword
 
@@ -98,9 +97,9 @@ func _physics_process(delta):
 		velocity = direction * speed
 	velocity.y = y_velocity
 
-	
-	move_and_slide(velocity,Vector3.UP)
-	
+	if !Death.dead:
+		move_and_slide(velocity,Vector3.UP)
+		
 	if direction != Vector3(0,0,0) && $combat.current_attack == 0 and $ui.game:
 		character.rotation.y = lerp_angle(character.rotation.y, atan2(direction.x,direction.z),delta * 5)
 		#$combat.target_pivot.rotation.y = character.rotation.y
