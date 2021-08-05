@@ -1,0 +1,1018 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/sprite/environment/trees/greentree2.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/sprite/environment/trees/pinktree3.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/sprite/environment/trees/bluetree1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/sprite/environment/trees/lightgreentree1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/sprite/environment/trees/pinktree1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/script/lod.gd" type="Script" id=6]
+[ext_resource path="res://assets/sprite/environment/trees/bluetree3.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/sprite/environment/trees/redtree3.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/sprite/environment/trees/greentree3.tscn" type="PackedScene" id=9]
+
+[node name="trees_1" type="Spatial"]
+visible = false
+
+[node name="pinktree267" type="Spatial" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.378212, 0, 0.925719, 0, 1, 0, -0.925719, 0, 0.378212, 223.354, 0.961182, 214.311 )
+script = ExtResource( 6 )
+
+[node name="pinktree273" type="Spatial" parent="." instance=ExtResource( 5 )]
+transform = Transform( -0.994208, 0, 0.107471, 0, 1, 0, -0.107471, 0, -0.994208, 260.766, 2.55056, 180.124 )
+script = ExtResource( 6 )
+
+[node name="pinktree274" type="Spatial" parent="." instance=ExtResource( 5 )]
+transform = Transform( -0.107749, 0, 0.994178, 0, 1, 0, -0.994178, 0, -0.107749, 260.766, 2.55056, 180.124 )
+script = ExtResource( 6 )
+
+[node name="pinktree276" type="Spatial" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.87063, 0, 0.491938, 0, 1, 0, -0.491938, 0, 0.87063, 264.148, 0.828011, 251.158 )
+script = ExtResource( 6 )
+
+[node name="pinktree277" type="Spatial" parent="." instance=ExtResource( 5 )]
+transform = Transform( -0.1303, 0, -0.991475, 0, 1, 0, 0.991475, 0, -0.1303, 293.166, 1.10579, 212.319 )
+script = ExtResource( 6 )
+
+[node name="pinktree278" type="Spatial" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.151763, 0, 0.988417, 0, 1, 0, -0.988417, 0, 0.151763, 294.034, 0.789009, 230.279 )
+script = ExtResource( 6 )
+
+[node name="pinktree279" type="Spatial" parent="." instance=ExtResource( 5 )]
+transform = Transform( -0.996001, 0, -0.0893374, 0, 1, 0, 0.0893374, 0, -0.996001, 294.615, 1.89331, 171.294 )
+script = ExtResource( 6 )
+
+[node name="pinktree280" type="Spatial" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.909687, 0, -0.415295, 0, 1, 0, 0.415295, 0, 0.909687, 311.639, 0.878769, 193.795 )
+script = ExtResource( 6 )
+
+[node name="pinktree281" type="Spatial" parent="." instance=ExtResource( 5 )]
+transform = Transform( -0.716243, 0, 0.697851, 0, 1, 0, -0.697851, 0, -0.716243, 281.479, 0.731888, 222.762 )
+script = ExtResource( 6 )
+
+[node name="pinktree283" type="Spatial" parent="." instance=ExtResource( 5 )]
+transform = Transform( -0.463936, 0, 0.885869, 0, 1, 0, -0.885869, 0, -0.463936, 235.421, 2.1305, 179.719 )
+script = ExtResource( 6 )
+
+[node name="pinktree284" type="Spatial" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.977536, 0, -0.210769, 0, 1, 0, 0.210769, 0, 0.977536, 320.452, 0.347794, 208.401 )
+script = ExtResource( 6 )
+
+[node name="pinktree286" type="Spatial" parent="." instance=ExtResource( 5 )]
+transform = Transform( -0.534561, 0, 0.84513, 0, 1, 0, -0.84513, 0, -0.534561, 346.569, 0.190544, 192.678 )
+script = ExtResource( 6 )
+
+[node name="pinktree287" type="Spatial" parent="." instance=ExtResource( 5 )]
+transform = Transform( -0.781036, 0, 0.624486, 0, 1, 0, -0.624486, 0, -0.781036, 324.522, 0.772415, 172.67 )
+script = ExtResource( 6 )
+
+[node name="pinktree288" type="Spatial" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.849439, 0, 0.527687, 0, 1, 0, -0.527687, 0, 0.849439, 324.522, 0.772415, 172.67 )
+script = ExtResource( 6 )
+
+[node name="pinktree289" type="Spatial" parent="." instance=ExtResource( 5 )]
+transform = Transform( -0.736812, 0, -0.676098, 0, 1, 0, 0.676098, 0, -0.736812, 306.332, 0.847176, 213.628 )
+script = ExtResource( 6 )
+
+[node name="pinktree290" type="Spatial" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.698723, 0, 0.715392, 0, 1, 0, -0.715392, 0, 0.698723, 272.095, 1.26212, 143.138 )
+script = ExtResource( 6 )
+
+[node name="pinktree292" type="Spatial" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.992744, 0, -0.120244, 0, 1, 0, 0.120244, 0, 0.992744, 228.704, 0.927452, 225.507 )
+script = ExtResource( 6 )
+
+[node name="pinktree293" type="Spatial" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.802931, 0, 0.596072, 0, 1, 0, -0.596072, 0, 0.802931, 203.344, 3.61605, 195.927 )
+script = ExtResource( 6 )
+
+[node name="redtree180" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.885762, 0, 0.46414, 0, 1, 0, -0.46414, 0, -0.885762, 214.515, 1.80038, 209.613 )
+script = ExtResource( 6 )
+
+[node name="redtree186" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.899501, 0, -0.436919, 0, 1, 0, 0.436919, 0, -0.899501, 236.103, 0.982101, 228.586 )
+script = ExtResource( 6 )
+
+[node name="redtree187" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.888149, 0, 0.459557, 0, 1, 0, -0.459557, 0, -0.888149, 235.469, 0.787018, 251.799 )
+script = ExtResource( 6 )
+
+[node name="redtree190" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.219749, 0, 0.975556, 0, 1, 0, -0.975556, 0, 0.219749, 241.309, 2.55756, 149.822 )
+script = ExtResource( 6 )
+
+[node name="redtree191" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.646779, 0, 0.762678, 0, 1, 0, -0.762678, 0, -0.646779, 225.24, 2.08584, 194.197 )
+script = ExtResource( 6 )
+
+[node name="redtree192" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.983518, 0, 0.180812, 0, 1, 0, -0.180812, 0, 0.983518, 240.016, 0.611717, 255.723 )
+script = ExtResource( 6 )
+
+[node name="redtree193" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.641987, 0, 0.766715, 0, 1, 0, -0.766715, 0, -0.641987, 272.578, 0.584732, 232.654 )
+script = ExtResource( 6 )
+
+[node name="redtree194" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.0153386, 0, -0.999882, 0, 1, 0, 0.999882, 0, -0.0153386, 287.803, 0.209618, 239.433 )
+script = ExtResource( 6 )
+
+[node name="redtree197" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.558725, 0, 0.829353, 0, 1, 0, -0.829353, 0, 0.558725, 303.627, 1.20531, 195.436 )
+script = ExtResource( 6 )
+
+[node name="redtree199" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.896461, 0, -0.443122, 0, 1, 0, 0.443122, 0, -0.896461, 315.305, 1.31632, 217.869 )
+script = ExtResource( 6 )
+
+[node name="redtree201" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.999732, 0, -0.0231509, 0, 1, 0, 0.0231509, 0, -0.999732, 330.936, 0.22596, 186.011 )
+script = ExtResource( 6 )
+
+[node name="redtree202" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.341647, 0, -0.939828, 0, 1, 0, 0.939828, 0, -0.341647, 338.007, -0.17215, 187.163 )
+script = ExtResource( 6 )
+
+[node name="redtree203" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.949323, 0, 0.314303, 0, 1, 0, -0.314303, 0, -0.949323, 349.249, 0.645607, 176.033 )
+script = ExtResource( 6 )
+
+[node name="redtree204" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.758271, 0, 0.651939, 0, 1, 0, -0.651939, 0, -0.758271, 356.453, 2.15698, 191.989 )
+script = ExtResource( 6 )
+
+[node name="redtree205" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.535627, 0, 0.844455, 0, 1, 0, -0.844455, 0, -0.535627, 324.648, 0.576996, 190.95 )
+script = ExtResource( 6 )
+
+[node name="redtree207" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.301467, 0, -0.953477, 0, 1, 0, 0.953477, 0, -0.301467, 274.006, 0.803715, 172.066 )
+script = ExtResource( 6 )
+
+[node name="redtree208" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.955603, 0, 0.294657, 0, 1, 0, -0.294657, 0, 0.955603, 290.801, 3.24225, 145.616 )
+script = ExtResource( 6 )
+
+[node name="redtree209" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.461965, 0, 0.886898, 0, 1, 0, -0.886898, 0, 0.461965, 304.461, 2.00059, 158.773 )
+script = ExtResource( 6 )
+
+[node name="redtree210" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.624843, 0, -0.78075, 0, 1, 0, 0.78075, 0, -0.624843, 281.539, 1.91062, 159.026 )
+script = ExtResource( 6 )
+
+[node name="redtree211" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.481126, 0, -0.876651, 0, 1, 0, 0.876651, 0, 0.481126, 259.516, 1.3923, 161.795 )
+script = ExtResource( 6 )
+
+[node name="redtree212" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.404955, 0, 0.914337, 0, 1, 0, -0.914337, 0, 0.404955, 245.15, 2.93031, 188.741 )
+script = ExtResource( 6 )
+
+[node name="redtree213" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.176688, 0, 0.984267, 0, 1, 0, -0.984267, 0, -0.176688, 254.636, 4.24715, 130.929 )
+script = ExtResource( 6 )
+
+[node name="bluetree175" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( -0.649253, 0, -0.760572, 0, 1, 0, 0.760572, 0, -0.649253, 245.671, 2.40567, 196.456 )
+script = ExtResource( 6 )
+
+[node name="bluetree177" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.506841, 0, -0.862039, 0, 1, 0, 0.862039, 0, 0.506841, 255.91, 0.462105, 237.951 )
+script = ExtResource( 6 )
+
+[node name="bluetree178" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( -0.0222878, 0, -0.999752, 0, 1, 0, 0.999752, 0, -0.0222878, 247.515, 0.505981, 250.383 )
+script = ExtResource( 6 )
+
+[node name="bluetree179" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.706861, 0, -0.707353, 0, 1, 0, 0.707353, 0, 0.706861, 264.479, 0.731327, 239.251 )
+script = ExtResource( 6 )
+
+[node name="bluetree180" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( -0.155469, 0, -0.987841, 0, 1, 0, 0.987841, 0, -0.155469, 279.32, 0.527115, 232.469 )
+script = ExtResource( 6 )
+
+[node name="bluetree181" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.691737, 0, 0.722149, 0, 1, 0, -0.722149, 0, 0.691737, 280.929, 0.672005, 241.751 )
+script = ExtResource( 6 )
+
+[node name="bluetree182" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( -0.238223, 0, -0.97121, 0, 1, 0, 0.97121, 0, -0.238223, 290.396, 1.6842, 226.336 )
+script = ExtResource( 6 )
+
+[node name="bluetree184" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( -0.850325, 0, 0.526258, 0, 1, 0, -0.526258, 0, -0.850325, 296.853, 1.2437, 215.944 )
+script = ExtResource( 6 )
+
+[node name="bluetree186" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.782302, 0, -0.6229, 0, 1, 0, 0.6229, 0, 0.782302, 306.807, 1.0452, 201.184 )
+script = ExtResource( 6 )
+
+[node name="bluetree188" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.0800667, 0, -0.99679, 0, 1, 0, 0.99679, 0, 0.0800667, 296.167, 0.480959, 237.255 )
+script = ExtResource( 6 )
+
+[node name="bluetree190" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.842658, 0, 0.53845, 0, 1, 0, -0.53845, 0, 0.842658, 329.393, 0.671442, 209.601 )
+script = ExtResource( 6 )
+
+[node name="bluetree191" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.0345511, 0, 0.999403, 0, 1, 0, -0.999403, 0, 0.0345511, 321.146, 0.447372, 192.594 )
+script = ExtResource( 6 )
+
+[node name="bluetree193" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( -0.158675, 0, -0.987331, 0, 1, 0, 0.987331, 0, -0.158675, 311.678, 0.44998, 202.217 )
+script = ExtResource( 6 )
+
+[node name="bluetree194" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( -0.326386, 0, 0.945236, 0, 1, 0, -0.945236, 0, -0.326386, 345.307, 1.04929, 180.5 )
+script = ExtResource( 6 )
+
+[node name="bluetree195" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( -0.979492, 0, 0.201485, 0, 1, 0, -0.201485, 0, -0.979492, 335.028, -0.58905, 196.354 )
+script = ExtResource( 6 )
+
+[node name="bluetree196" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.17171, 0, 0.985148, 0, 1, 0, -0.985148, 0, 0.17171, 353.087, 1.7438, 196.514 )
+script = ExtResource( 6 )
+
+[node name="bluetree198" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.845896, 0, -0.533348, 0, 1, 0, 0.533348, 0, 0.845896, 285.325, 2.11261, 165.173 )
+script = ExtResource( 6 )
+
+[node name="bluetree199" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( -1, 0, -0.000631483, 0, 1, 0, 0.000631483, 0, -1, 269.953, 1.00076, 182.368 )
+script = ExtResource( 6 )
+
+[node name="bluetree200" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.994465, 0, 0.105069, 0, 1, 0, -0.105069, 0, 0.994465, 265.868, 0.96241, 149.393 )
+script = ExtResource( 6 )
+
+[node name="bluetree201" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.915139, 0, 0.403138, 0, 1, 0, -0.403138, 0, 0.915139, 245.628, 1.93154, 168.186 )
+script = ExtResource( 6 )
+
+[node name="bluetree202" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( -0.999703, 0, -0.0243572, 0, 1, 0, 0.0243572, 0, -0.999703, 219.993, 3.555, 179.847 )
+script = ExtResource( 6 )
+
+[node name="bluetree203" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.947098, 0, 0.320944, 0, 1, 0, -0.320944, 0, 0.947098, 223.694, 1.3718, 203.423 )
+script = ExtResource( 6 )
+
+[node name="bluetree204" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.520435, 0, 0.853902, 0, 1, 0, -0.853902, 0, 0.520435, 251.015, 1.40904, 146.03 )
+script = ExtResource( 6 )
+
+[node name="bluetree205" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.999748, 0, -0.0224577, 0, 1, 0, 0.0224577, 0, 0.999748, 272.921, 2.33492, 125.68 )
+script = ExtResource( 6 )
+
+[node name="bluetree206" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( -0.802107, 0, 0.597181, 0, 1, 0, -0.597181, 0, -0.802107, 277.048, 1.70148, 142.113 )
+script = ExtResource( 6 )
+
+[node name="bluetree207" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.475315, 0, 0.879816, 0, 1, 0, -0.879816, 0, 0.475315, 296.581, 2.13664, 157.228 )
+script = ExtResource( 6 )
+
+[node name="greentree157" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( -0.691621, 0, -0.722261, 0, 1, 0, 0.722261, 0, -0.691621, 231.891, 1.03587, 236.18 )
+script = ExtResource( 6 )
+
+[node name="greentree165" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.748178, 0, -0.663498, 0, 1, 0, 0.663498, 0, 0.748178, 232.404, 1.84773, 198.497 )
+script = ExtResource( 6 )
+
+[node name="greentree169" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( -0.763455, 0, -0.645862, 0, 1, 0, 0.645862, 0, -0.763455, 282.374, 0.970039, 215.413 )
+script = ExtResource( 6 )
+
+[node name="greentree170" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.881965, 0, 0.471314, 0, 1, 0, -0.471314, 0, 0.881965, 291.115, 1.29539, 219.685 )
+script = ExtResource( 6 )
+
+[node name="greentree171" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( -0.561976, 0, 0.827154, 0, 1, 0, -0.827154, 0, -0.561976, 285.139, 0.706436, 233.433 )
+script = ExtResource( 6 )
+
+[node name="greentree172" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( -0.36748, 0, 0.930031, 0, 1, 0, -0.930031, 0, -0.36748, 298.909, 1.37106, 206.829 )
+script = ExtResource( 6 )
+
+[node name="greentree173" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.970191, 0, 0.242341, 0, 1, 0, -0.242341, 0, 0.970191, 313.772, 0.538055, 209.374 )
+script = ExtResource( 6 )
+
+[node name="greentree175" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.351826, 0, 0.936065, 0, 1, 0, -0.936065, 0, 0.351826, 327.752, 0.14489, 198.487 )
+script = ExtResource( 6 )
+
+[node name="greentree176" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( -0.0322583, 0, 0.99948, 0, 1, 0, -0.99948, 0, -0.0322583, 319.984, 0.811249, 179.323 )
+script = ExtResource( 6 )
+
+[node name="greentree181" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.88938, 0, 0.457169, 0, 1, 0, -0.457169, 0, 0.88938, 285.351, 1.5871, 168.627 )
+script = ExtResource( 6 )
+
+[node name="greentree183" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.128938, 0, -0.991653, 0, 1, 0, 0.991653, 0, 0.128938, 299.685, 2.31606, 159.354 )
+script = ExtResource( 6 )
+
+[node name="greentree184" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( -0.920109, 0, -0.391662, 0, 1, 0, 0.391662, 0, -0.920109, 288.214, 3.1969, 148.803 )
+script = ExtResource( 6 )
+
+[node name="greentree185" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.291643, 0, -0.956527, 0, 1, 0, 0.956527, 0, 0.291643, 272.508, 0.923035, 158.115 )
+script = ExtResource( 6 )
+
+[node name="greentree186" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.885976, 0, 0.46373, 0, 1, 0, -0.46373, 0, 0.885976, 250.325, 2.58341, 175.221 )
+script = ExtResource( 6 )
+
+[node name="greentree187" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( -0.94056, 0, -0.339629, 0, 1, 0, 0.339629, 0, -0.94056, 249.118, 3.63681, 193.016 )
+script = ExtResource( 6 )
+
+[node name="greentree188" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.689615, 0, -0.724176, 0, 1, 0, 0.724176, 0, 0.689615, 233.17, 1.23989, 189.448 )
+script = ExtResource( 6 )
+
+[node name="greentree189" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( -0.012922, 0, 0.999916, 0, 1, 0, -0.999916, 0, -0.012922, 212.526, 2.90759, 195.479 )
+script = ExtResource( 6 )
+
+[node name="greentree191" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.574894, 0, -0.818228, 0, 1, 0, 0.818228, 0, 0.574894, 230.043, 2.71984, 164.102 )
+script = ExtResource( 6 )
+
+[node name="greentree192" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( -0.981211, 0, -0.192936, 0, 1, 0, 0.192936, 0, -0.981211, 239.969, 1.62489, 173.02 )
+script = ExtResource( 6 )
+
+[node name="greentree193" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.929513, 0, -0.36879, 0, 1, 0, 0.36879, 0, 0.929513, 250.284, 1.17236, 152.632 )
+script = ExtResource( 6 )
+
+[node name="greentree194" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( -0.733326, 0, 0.679877, 0, 1, 0, -0.679877, 0, -0.733326, 238.492, 2.38019, 157.68 )
+script = ExtResource( 6 )
+
+[node name="greentree195" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.383076, 0, -0.923717, 0, 1, 0, 0.923717, 0, 0.383076, 246.661, 6.50775, 129.4 )
+script = ExtResource( 6 )
+
+[node name="greentree196" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.996942, 0, -0.078151, 0, 1, 0, 0.078151, 0, 0.996942, 260.425, 1.64775, 136.703 )
+script = ExtResource( 6 )
+
+[node name="greentree197" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( -0.94992, 0, -0.312493, 0, 1, 0, 0.312493, 0, -0.94992, 259.554, 0.772606, 150.131 )
+script = ExtResource( 6 )
+
+[node name="greentree198" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( -0.209318, 0, -0.977848, 0, 1, 0, 0.977848, 0, -0.209318, 283.168, 3.05268, 123.308 )
+script = ExtResource( 6 )
+
+[node name="greentree199" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.638734, 0, 0.769428, 0, 1, 0, -0.769428, 0, 0.638734, 281.897, 1.97901, 145.136 )
+script = ExtResource( 6 )
+
+[node name="greentree200" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.584465, 0, 0.811419, 0, 1, 0, -0.811419, 0, 0.584465, 311.412, 2.05941, 166.904 )
+script = ExtResource( 6 )
+
+[node name="greentree201" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( -0.521229, 0, -0.853417, 0, 1, 0, 0.853417, 0, -0.521229, 334.455, 0.767639, 177.182 )
+script = ExtResource( 6 )
+
+[node name="greentree202" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( -0.148372, 0, 0.988932, 0, 1, 0, -0.988932, 0, -0.148372, 268.007, 0.843903, 253.717 )
+script = ExtResource( 6 )
+
+[node name="greentree204" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( -0.0364489, 0, 0.999336, 0, 1, 0, -0.999336, 0, -0.0364489, 348.016, 1.03655, 198.873 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree165" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.702005, 0, 0.712172, 0, 1, 0, -0.712172, 0, 0.702005, 255.31, 0.514046, 246.227 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree166" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.637624, 0, 0.770348, 0, 1, 0, -0.770348, 0, -0.637624, 272.905, 0.800758, 223.357 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree167" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.225703, 0, -0.974196, 0, 1, 0, 0.974196, 0, -0.225703, 270.953, 1.17892, 240.589 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree169" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.970413, 0, 0.241452, 0, 1, 0, -0.241452, 0, 0.970413, 226.55, 0.838833, 218.591 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree170" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.936891, 0, 0.349621, 0, 1, 0, -0.349621, 0, -0.936891, 250.145, 2.63647, 201.861 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree172" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.722101, 0, 0.691788, 0, 1, 0, -0.691788, 0, 0.722101, 267.272, 1.99337, 187.266 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree175" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.649185, 0, -0.76063, 0, 1, 0, 0.76063, 0, -0.649185, 265.517, 1.15398, 169.834 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree176" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.858293, 0, -0.51316, 0, 1, 0, 0.51316, 0, -0.858293, 253.461, 2.9563, 185.628 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree177" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.268806, 0, -0.963194, 0, 1, 0, 0.963194, 0, -0.268806, 242.671, 1.51309, 176.547 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree178" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.26517, 0, 0.964202, 0, 1, 0, -0.964202, 0, 0.26517, 235.968, 1.28592, 191.343 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree179" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.822976, 0, -0.568077, 0, 1, 0, 0.568077, 0, -0.822976, 229.103, 1.66768, 208.566 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree180" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.439365, 0, -0.898309, 0, 1, 0, 0.898309, 0, 0.439365, 231.429, 0.827259, 222.035 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree185" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.745205, 0, -0.666835, 0, 1, 0, 0.666835, 0, -0.745205, 217.981, 1.80189, 204.903 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree186" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.386462, 0, -0.922305, 0, 1, 0, 0.922305, 0, -0.386462, 206.175, 2.01597, 200.742 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree197" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.901892, 0, -0.431962, 0, 1, 0, 0.431962, 0, -0.901892, 286.498, 1.16367, 209.472 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree199" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.825185, 0, 0.564863, 0, 1, 0, -0.564863, 0, 0.825185, 305.635, 1.16459, 205.036 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree200" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.69456, 0, -0.719435, 0, 1, 0, 0.719435, 0, 0.69456, 321.421, -0.204121, 197.347 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree201" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.770658, 0, -0.637249, 0, 1, 0, 0.637249, 0, -0.770658, 316.99, 0.769642, 184.791 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree202" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.620907, 0, 0.783884, 0, 1, 0, -0.783884, 0, -0.620907, 343.712, 0.706848, 196.897 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree203" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.999992, 0, -0.00400831, 0, 1, 0, 0.00400831, 0, 0.999992, 330.707, 0.122227, 201.235 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree204" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.253374, 0, 0.967368, 0, 1, 0, -0.967368, 0, 0.253374, 310.703, 1.13612, 215.907 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree206" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.872587, 0, -0.488459, 0, 1, 0, 0.488459, 0, -0.872587, 296.426, 1.66685, 222.156 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree207" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.858511, 0, 0.512795, 0, 1, 0, -0.512795, 0, -0.858511, 344.541, 0.384407, 184.208 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree208" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.981845, 0, -0.189683, 0, 1, 0, 0.189683, 0, 0.981845, 359.714, 1.0014, 177.944 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree211" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.848671, 0, -0.52892, 0, 1, 0, 0.52892, 0, 0.848671, 325.239, 0.768074, 177.147 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree212" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.765105, 0, -0.643906, 0, 1, 0, 0.643906, 0, -0.765105, 310.858, 1.07797, 187.918 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree213" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.501368, 0, -0.865234, 0, 1, 0, 0.865234, 0, -0.501368, 304.267, 1.65584, 165.376 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree215" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.977035, 0, -0.213079, 0, 1, 0, 0.213079, 0, -0.977035, 288.863, 2.18107, 156.817 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree216" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.521587, 0, 0.853198, 0, 1, 0, -0.853198, 0, 0.521587, 276.183, 1.42471, 164.024 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree217" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.97063, 0, 0.240577, 0, 1, 0, -0.240577, 0, -0.97063, 252.816, 2.00671, 167.62 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree218" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.180846, 0, -0.983512, 0, 1, 0, 0.983512, 0, -0.180846, 292.14, 3.66111, 127.329 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree219" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.813509, 0, -0.581553, 0, 1, 0, 0.581553, 0, -0.813509, 281.256, 2.21273, 134.143 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree220" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.887813, 0, 0.460204, 0, 1, 0, -0.460204, 0, 0.887813, 304.643, 1.84385, 146.441 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree221" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.997325, 0, 0.0730979, 0, 1, 0, -0.0730979, 0, -0.997325, 277.002, 1.37574, 149.667 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree222" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.953783, 0, -0.300495, 0, 1, 0, 0.300495, 0, 0.953783, 262.213, 1.13679, 157.398 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree223" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.923012, 0, 0.384772, 0, 1, 0, -0.384772, 0, -0.923012, 266.907, 1.19452, 134.074 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree224" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.943281, 0, -0.331995, 0, 1, 0, 0.331995, 0, 0.943281, 246.047, 2.38998, 158.75 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree225" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.358996, 0, 0.933339, 0, 1, 0, -0.933339, 0, -0.358996, 224.965, 2.11986, 178.217 )
+script = ExtResource( 6 )
+
+[node name="pinktree294" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.196891, 0, -0.980425, 0, 1, 0, 0.980425, 0, 0.196891, 225.186, 1.65492, 186.674 )
+script = ExtResource( 6 )
+
+[node name="pinktree295" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.990597, 0, -0.136813, 0, 1, 0, 0.136813, 0, -0.990597, 246.057, 2.66123, 182.572 )
+script = ExtResource( 6 )
+
+[node name="pinktree300" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.761263, 0, -0.648444, 0, 1, 0, 0.648444, 0, 0.761263, 300.381, 1.0475, 195.868 )
+script = ExtResource( 6 )
+
+[node name="pinktree301" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.98057, 0, -0.196169, 0, 1, 0, 0.196169, 0, 0.98057, 326.432, 0.767639, 180.512 )
+script = ExtResource( 6 )
+
+[node name="pinktree302" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.853809, 0, -0.520586, 0, 1, 0, 0.520586, 0, 0.853809, 319.065, -0.0622597, 201.936 )
+script = ExtResource( 6 )
+
+[node name="pinktree303" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.99258, 0, 0.121593, 0, 1, 0, -0.121593, 0, -0.99258, 341.23, 0.0264435, 197.605 )
+script = ExtResource( 6 )
+
+[node name="pinktree306" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.173835, 0, 0.984775, 0, 1, 0, -0.984775, 0, 0.173835, 347.177, -0.304157, 204.243 )
+script = ExtResource( 6 )
+
+[node name="pinktree307" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.420326, 0, -0.907373, 0, 1, 0, 0.907373, 0, 0.420326, 353.817, 0.54118, 181.63 )
+script = ExtResource( 6 )
+
+[node name="pinktree308" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.999871, 0, 0.0160881, 0, 1, 0, -0.0160881, 0, 0.999871, 341.557, -0.0259933, 186.13 )
+script = ExtResource( 6 )
+
+[node name="pinktree309" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.0750493, 0, -0.99718, 0, 1, 0, 0.99718, 0, -0.0750493, 343.353, 0.745773, 178.477 )
+script = ExtResource( 6 )
+
+[node name="pinktree313" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.772644, 0, 0.63484, 0, 1, 0, -0.63484, 0, 0.772644, 239.235, 1.52985, 201.185 )
+script = ExtResource( 6 )
+
+[node name="pinktree314" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.670288, 0, -0.742101, 0, 1, 0, 0.742101, 0, 0.670288, 237.989, 1.99203, 183.323 )
+script = ExtResource( 6 )
+
+[node name="pinktree315" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.837694, 0, -0.546139, 0, 1, 0, 0.546139, 0, -0.837694, 217.19, 2.00178, 196.755 )
+script = ExtResource( 6 )
+
+[node name="pinktree316" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.667858, 0, 0.744289, 0, 1, 0, -0.744289, 0, 0.667858, 207.892, 1.07819, 205.511 )
+script = ExtResource( 6 )
+
+[node name="pinktree320" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.95487, 0, 0.297023, 0, 1, 0, -0.297023, 0, 0.95487, 231.587, 0.799282, 257.179 )
+script = ExtResource( 6 )
+
+[node name="pinktree321" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.698674, 0, -0.71544, 0, 1, 0, 0.71544, 0, 0.698674, 247.732, 0.557407, 243.967 )
+script = ExtResource( 6 )
+
+[node name="pinktree322" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.71726, 0, 0.696806, 0, 1, 0, -0.696806, 0, 0.71726, 267.015, 0.151283, 235.205 )
+script = ExtResource( 6 )
+
+[node name="pinktree323" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.923607, 0, -0.383341, 0, 1, 0, 0.383341, 0, -0.923607, 312.11, 1.90237, 168.924 )
+script = ExtResource( 6 )
+
+[node name="pinktree324" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.712288, 0, 0.701887, 0, 1, 0, -0.701887, 0, -0.712288, 267.005, 1.40322, 175.466 )
+script = ExtResource( 6 )
+
+[node name="pinktree325" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.367985, 0, 0.929832, 0, 1, 0, -0.929832, 0, -0.367985, 260.213, 2.59694, 172.824 )
+script = ExtResource( 6 )
+
+[node name="pinktree272" type="Spatial" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.934623, 0, -0.35564, 0, 1, 0, 0.35564, 0, 0.934623, 260.203, 0.826271, 228.715 )
+script = ExtResource( 6 )
+
+[node name="pinktree282" type="Spatial" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.87839, 0, 0.477945, 0, 1, 0, -0.477945, 0, 0.87839, 286.9, 1.11826, 181.427 )
+script = ExtResource( 6 )
+
+[node name="pinktree285" type="Spatial" parent="." instance=ExtResource( 5 )]
+transform = Transform( -0.984361, 0, -0.176162, 0, 1, 0, 0.176162, 0, -0.984361, 335.811, 0.956123, 173.028 )
+script = ExtResource( 6 )
+
+[node name="pinktree291" type="Spatial" parent="." instance=ExtResource( 5 )]
+transform = Transform( -0.871881, 0, -0.489717, 0, 1, 0, 0.489717, 0, -0.871881, 277.301, 0.779976, 191.283 )
+script = ExtResource( 6 )
+
+[node name="redtree188" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.515952, 0, -0.856617, 0, 1, 0, 0.856617, 0, 0.515952, 257.769, 1.48621, 217.622 )
+script = ExtResource( 6 )
+
+[node name="redtree189" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.838104, 0, -0.545511, 0, 1, 0, 0.545511, 0, -0.838104, 260.617, 1.79922, 192.362 )
+script = ExtResource( 6 )
+
+[node name="redtree195" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.553965, 0, 0.83254, 0, 1, 0, -0.83254, 0, -0.553965, 282.891, 0.872429, 206.026 )
+script = ExtResource( 6 )
+
+[node name="redtree196" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.999886, 0, 0.015105, 0, 1, 0, -0.015105, 0, 0.999886, 304.119, 1.50811, 174.917 )
+script = ExtResource( 6 )
+
+[node name="redtree198" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.968079, 0, -0.250645, 0, 1, 0, 0.250645, 0, -0.968079, 304.101, 1.19082, 221.857 )
+script = ExtResource( 6 )
+
+[node name="redtree200" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.346548, 0, -0.938032, 0, 1, 0, 0.938032, 0, 0.346548, 337.577, 0.238487, 207.786 )
+script = ExtResource( 6 )
+
+[node name="redtree206" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.980791, 0, 0.195061, 0, 1, 0, -0.195061, 0, 0.980791, 293.711, 0.829807, 186.96 )
+script = ExtResource( 6 )
+
+[node name="bluetree176" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( -0.0243223, 0, -0.999704, 0, 1, 0, 0.999704, 0, -0.0243223, 250.447, 1.68885, 220.049 )
+script = ExtResource( 6 )
+
+[node name="bluetree183" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( -0.568842, 0, 0.822447, 0, 1, 0, -0.822447, 0, -0.568842, 277.113, 0.835369, 207.495 )
+script = ExtResource( 6 )
+
+[node name="bluetree185" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( -0.231215, 0, 0.972903, 0, 1, 0, -0.972903, 0, -0.231215, 290.453, 1.03218, 193.661 )
+script = ExtResource( 6 )
+
+[node name="bluetree187" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( -0.925336, 0, -0.379148, 0, 1, 0, 0.379148, 0, -0.925336, 307.292, 0.939655, 225.325 )
+script = ExtResource( 6 )
+
+[node name="bluetree189" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( -0.687907, 0, -0.725799, 0, 1, 0, 0.725799, 0, -0.687907, 320.195, 0.171871, 219.849 )
+script = ExtResource( 6 )
+
+[node name="bluetree192" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( -0.623392, 0, -0.78191, 0, 1, 0, 0.78191, 0, -0.623392, 314.849, 1.58119, 176.185 )
+script = ExtResource( 6 )
+
+[node name="bluetree197" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.992423, 0, 0.122872, 0, 1, 0, -0.122872, 0, 0.992423, 305.264, 0.892891, 181.412 )
+script = ExtResource( 6 )
+
+[node name="greentree160" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.833122, 0, -0.55309, 0, 1, 0, 0.55309, 0, 0.833122, 249.881, 0.77845, 230.68 )
+script = ExtResource( 6 )
+
+[node name="greentree166" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.791757, 0, -0.610837, 0, 1, 0, 0.610837, 0, 0.791757, 249.092, 2.45045, 211.042 )
+script = ExtResource( 6 )
+
+[node name="greentree167" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( -0.514491, 0, 0.857496, 0, 1, 0, -0.857496, 0, -0.514491, 260.976, 2.53194, 201.954 )
+script = ExtResource( 6 )
+
+[node name="greentree168" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.460465, 0, -0.887678, 0, 1, 0, 0.887678, 0, 0.460465, 267.382, 0.986725, 219.902 )
+script = ExtResource( 6 )
+
+[node name="greentree174" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.666427, 0, 0.74557, 0, 1, 0, -0.74557, 0, 0.666427, 302.702, 1.01997, 230.842 )
+script = ExtResource( 6 )
+
+[node name="greentree177" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.97558, 0, -0.219643, 0, 1, 0, 0.219643, 0, 0.97558, 291.934, 1.13256, 200.841 )
+script = ExtResource( 6 )
+
+[node name="greentree178" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.506316, 0, 0.862348, 0, 1, 0, -0.862348, 0, 0.506316, 283.016, 0.826859, 192.53 )
+script = ExtResource( 6 )
+
+[node name="greentree179" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.00960474, 0, -0.999954, 0, 1, 0, 0.999954, 0, 0.00960474, 271.46, 0.935135, 197.413 )
+script = ExtResource( 6 )
+
+[node name="greentree180" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.453431, 0, 0.891291, 0, 1, 0, -0.891291, 0, 0.453431, 278.71, 0.812027, 176.855 )
+script = ExtResource( 6 )
+
+[node name="greentree182" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.735772, 0, 0.677229, 0, 1, 0, -0.677229, 0, 0.735772, 295.944, 1.64688, 176.509 )
+script = ExtResource( 6 )
+
+[node name="greentree203" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( -0.88175, 0, 0.471718, 0, 1, 0, -0.471718, 0, -0.88175, 326.586, 0.0198822, 214.033 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree171" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.732155, 0, 0.681138, 0, 1, 0, -0.681138, 0, 0.732155, 261.165, 1.91425, 211.02 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree173" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.992254, 0, 0.124224, 0, 1, 0, -0.124224, 0, 0.992254, 281.377, 0.808453, 197.923 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree174" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.903805, 0, 0.427944, 0, 1, 0, -0.427944, 0, -0.903805, 279.887, 0.767845, 181.512 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree198" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.217541, 0, 0.976051, 0, 1, 0, -0.976051, 0, -0.217541, 298.182, 0.920082, 189.634 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree205" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.584897, 0, 0.811108, 0, 1, 0, -0.811108, 0, -0.584897, 313.431, 0.310642, 223.397 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree209" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.988981, 0, -0.148042, 0, 1, 0, 0.148042, 0, 0.988981, 367.77, 2.03942, 185.118 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree210" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.890149, 0, -0.455669, 0, 1, 0, 0.455669, 0, 0.890149, 339.936, 1.11976, 172.1 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree214" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.937453, 0, -0.348111, 0, 1, 0, 0.348111, 0, 0.937453, 286.407, 1.00474, 173.821 )
+script = ExtResource( 6 )
+
+[node name="pinktree296" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.343164, 0, -0.939275, 0, 1, 0, 0.939275, 0, 0.343164, 243.89, 1.04756, 220.605 )
+script = ExtResource( 6 )
+
+[node name="pinktree297" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.578987, 0, 0.815337, 0, 1, 0, -0.815337, 0, 0.578987, 256.519, 2.81587, 208.739 )
+script = ExtResource( 6 )
+
+[node name="pinktree298" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.553005, 0, -0.833178, 0, 1, 0, 0.833178, 0, 0.553005, 277.081, 1.0568, 214.679 )
+script = ExtResource( 6 )
+
+[node name="pinktree299" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.325782, 0, -0.945445, 0, 1, 0, 0.945445, 0, 0.325782, 275.946, 0.821487, 199.865 )
+script = ExtResource( 6 )
+
+[node name="pinktree304" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.414242, 0, -0.910167, 0, 1, 0, 0.910167, 0, -0.414242, 309.364, 1.39139, 228.12 )
+script = ExtResource( 6 )
+
+[node name="pinktree305" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.999373, 0, 0.0353982, 0, 1, 0, -0.0353982, 0, 0.999373, 334.507, -0.17662, 211.45 )
+script = ExtResource( 6 )
+
+[node name="pinktree310" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.721728, 0, 0.692176, 0, 1, 0, -0.692176, 0, -0.721728, 288.592, 1.02537, 200.506 )
+script = ExtResource( 6 )
+
+[node name="pinktree311" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.0302306, 0, -0.999543, 0, 1, 0, 0.999543, 0, -0.0302306, 265.558, 2.01143, 194.429 )
+script = ExtResource( 6 )
+
+[node name="pinktree312" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.940551, 0, -0.339654, 0, 1, 0, 0.339654, 0, 0.940551, 255.195, 3.09559, 197.509 )
+script = ExtResource( 6 )
+
+[node name="redtree225" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.999542, 0, 0.0302516, 0, 1, 0, -0.0302516, 0, -0.999542, 366.532, 1.24115, 189.395 )
+script = ExtResource( 6 )
+
+[node name="redtree224" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.334834, 0, 0.942277, 0, 1, 0, -0.942277, 0, -0.334834, 284.582, 0.836697, 245.217 )
+script = ExtResource( 6 )
+
+[node name="redtree223" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.864813, 0, 0.502093, 0, 1, 0, -0.502093, 0, -0.864813, 276.543, 1.17087, 237.041 )
+script = ExtResource( 6 )
+
+[node name="redtree220" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.369114, 0, 0.929384, 0, 1, 0, -0.929384, 0, 0.369114, 257.021, 0.899702, 222.669 )
+script = ExtResource( 6 )
+
+[node name="redtree221" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.402792, 0, -0.915291, 0, 1, 0, 0.915291, 0, 0.402792, 260.571, 0.7391, 232.92 )
+script = ExtResource( 6 )
+
+[node name="redtree222" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.877328, 0, -0.47989, 0, 1, 0, 0.47989, 0, 0.877328, 263.434, 0.548216, 245.64 )
+script = ExtResource( 6 )
+
+[node name="pinktree275" type="Spatial" parent="." instance=ExtResource( 5 )]
+transform = Transform( -0.995679, 0, -0.0928599, 0, 1, 0, 0.0928599, 0, -0.995679, 247.315, 0.678757, 238.34 )
+script = ExtResource( 6 )
+
+[node name="bluetree173" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.0586281, 0, -0.99828, 0, 1, 0, 0.99828, 0, 0.0586281, 241.026, 0.78614, 230.926 )
+script = ExtResource( 6 )
+
+[node name="greentree159" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.882623, 0, -0.470081, 0, 1, 0, 0.470081, 0, 0.882623, 240.255, 0.827766, 245.193 )
+script = ExtResource( 6 )
+
+[node name="greentree161" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( -0.523274, 0, 0.852165, 0, 1, 0, -0.852165, 0, -0.523274, 239.038, 0.805946, 223.972 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree168" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.944399, 0, 0.328802, 0, 1, 0, -0.328802, 0, -0.944399, 237.177, 0.960659, 240.023 )
+script = ExtResource( 6 )
+
+[node name="redtree219" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.894584, 0, 0.4469, 0, 1, 0, -0.4469, 0, -0.894584, 248.032, 0.825708, 228.606 )
+script = ExtResource( 6 )
+
+[node name="pinktree245" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.133422, 0, 0.991059, 0, 1, 0, -0.991059, 0, 0.133422, 231.75, 0.807236, 267.807 )
+script = ExtResource( 6 )
+
+[node name="pinktree271" type="Spatial" parent="." instance=ExtResource( 5 )]
+transform = Transform( -0.595461, 0, -0.803384, 0, 1, 0, 0.803384, 0, -0.595461, 230.994, 0.809296, 245.041 )
+script = ExtResource( 6 )
+
+[node name="redtree181" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.717455, 0, -0.696605, 0, 1, 0, 0.696605, 0, -0.717455, 224.655, 1.09277, 230.041 )
+script = ExtResource( 6 )
+
+[node name="redtree182" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.0366205, 0, -0.999329, 0, 1, 0, 0.999329, 0, 0.0366205, 218.626, 0.931595, 247.922 )
+script = ExtResource( 6 )
+
+[node name="bluetree167" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( -0.15979, 0, -0.987151, 0, 1, 0, 0.987151, 0, -0.15979, 207.968, 0.771095, 222.76 )
+script = ExtResource( 6 )
+
+[node name="bluetree171" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( -0.95316, 0, -0.302466, 0, 1, 0, 0.302466, 0, -0.95316, 224.798, 0.97081, 236.698 )
+script = ExtResource( 6 )
+
+[node name="bluetree172" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.956395, 0, -0.292076, 0, 1, 0, 0.292076, 0, 0.956395, 223.03, 0.776577, 254.05 )
+script = ExtResource( 6 )
+
+[node name="bluetree174" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( -0.861493, 0, -0.507769, 0, 1, 0, 0.507769, 0, -0.861493, 212.825, 0.876743, 219.078 )
+script = ExtResource( 6 )
+
+[node name="greentree156" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.417687, 0, -0.908591, 0, 1, 0, 0.908591, 0, 0.417687, 217.259, 0.868118, 225.765 )
+script = ExtResource( 6 )
+
+[node name="greentree158" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.405836, 0, -0.913946, 0, 1, 0, 0.913946, 0, 0.405836, 223.545, 0.896317, 245.758 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree181" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.840914, 0, 0.541169, 0, 1, 0, -0.541169, 0, 0.840914, 217.437, 0.788197, 220.915 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree182" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.624022, 0, 0.781406, 0, 1, 0, -0.781406, 0, 0.624022, 207.826, 1.00073, 230.148 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree184" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.0956166, 0, 0.995418, 0, 1, 0, -0.995418, 0, 0.0956166, 218.203, 0.992828, 243.31 )
+script = ExtResource( 6 )
+
+[node name="greentree216" type="Spatial" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.930665, 0, 0.365872, 0, 1, 0, -0.365872, 0, 0.930665, 240.202, 0.794806, 258.75 )
+script = ExtResource( 6 )
+
+[node name="redtree217" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.239304, 0, -0.970945, 0, 1, 0, 0.970945, 0, -0.239304, 214.761, 1.66455, 212.502 )
+script = ExtResource( 6 )
+
+[node name="redtree218" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.948669, 0, 0.31627, 0, 1, 0, -0.31627, 0, 0.948669, 218.418, 1.03818, 233.913 )
+script = ExtResource( 6 )
+
+[node name="bluetree208" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( -0.969523, 0, -0.245, 0, 1, 0, 0.245, 0, -0.969523, 195.688, 0.767647, 213.339 )
+script = ExtResource( 6 )
+
+[node name="greentree162" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( -0.776715, 0, -0.629852, 0, 1, 0, 0.629852, 0, -0.776715, 202.574, 0.769501, 212.094 )
+script = ExtResource( 6 )
+
+[node name="greentree164" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.774915, 0, 0.632066, 0, 1, 0, -0.632066, 0, 0.774915, 191.063, 1.82207, 203.582 )
+script = ExtResource( 6 )
+
+[node name="greentree190" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.288789, 0, -0.957393, 0, 1, 0, 0.957393, 0, 0.288789, 199.382, 0.966156, 204.431 )
+script = ExtResource( 6 )
+
+[node name="pinktree317" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.886127, 0, 0.463442, 0, 1, 0, -0.463442, 0, 0.886127, 204.869, 0.814251, 216.269 )
+script = ExtResource( 6 )
+
+[node name="redtree216" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.675737, 0, 0.737143, 0, 1, 0, -0.737143, 0, 0.675737, 196.674, 0.767639, 215.665 )
+script = ExtResource( 6 )
+
+[node name="pinktree266" type="Spatial" parent="." instance=ExtResource( 5 )]
+transform = Transform( -0.989025, 0, 0.14775, 0, 1, 0, -0.14775, 0, -0.989025, 202.169, 0.767643, 221.566 )
+script = ExtResource( 6 )
+
+[node name="bluetree135" type="Spatial" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.999996, 0, -0.00290242, 0, 1, 0, 0.00290242, 0, -0.999996, 222.023, 0.77578, 267.633 )
+script = ExtResource( 6 )
+
+[node name="greentree140" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.786135, 0, -0.618055, 0, 1, 0, 0.618055, 0, 0.786135, 231.423, 1.99998, 283.931 )
+script = ExtResource( 6 )
+
+[node name="redtree158" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.446852, 0, -0.894608, 0, 1, 0, 0.894608, 0, -0.446852, 231.611, 0.787041, 281.875 )
+script = ExtResource( 6 )
+
+[node name="pinktree254" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.489486, 0, -0.872011, 0, 1, 0, 0.872011, 0, -0.489486, 226.883, 0.778263, 272.091 )
+script = ExtResource( 6 )
+
+[node name="pinktree268" type="Spatial" parent="." instance=ExtResource( 5 )]
+transform = Transform( -0.29223, 0, -0.956348, 0, 1, 0, 0.956348, 0, -0.29223, 210, 1.08405, 247.085 )
+script = ExtResource( 6 )
+
+[node name="pinktree270" type="Spatial" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.666447, 0, -0.745553, 0, 1, 0, 0.745553, 0, 0.666447, 193.075, 0.767952, 236.718 )
+script = ExtResource( 6 )
+
+[node name="redtree179" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.682351, 0, -0.731025, 0, 1, 0, 0.731025, 0, 0.682351, 199.661, 0.944508, 242.116 )
+script = ExtResource( 6 )
+
+[node name="redtree183" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.998685, 0, -0.0512586, 0, 1, 0, 0.0512586, 0, 0.998685, 193.706, 0.767639, 224.249 )
+script = ExtResource( 6 )
+
+[node name="bluetree170" type="Spatial" parent="." instance=ExtResource( 7 )]
+transform = Transform( -0.649022, 0, -0.76077, 0, 1, 0, 0.76077, 0, -0.649022, 177.173, 2.5131, 205.417 )
+script = ExtResource( 6 )
+
+[node name="greentree155" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.952473, 0, -0.304624, 0, 1, 0, 0.304624, 0, 0.952473, 203.176, 0.883255, 231.044 )
+script = ExtResource( 6 )
+
+[node name="greentree163" type="Spatial" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.48622, 0, 0.873836, 0, 1, 0, -0.873836, 0, 0.48622, 185.777, 0.831673, 220.484 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree183" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.874555, 0, 0.484926, 0, 1, 0, -0.484926, 0, 0.874555, 202.609, 0.878227, 239.918 )
+script = ExtResource( 6 )
+
+[node name="lightgreentree190" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.90789, 0, 0.419209, 0, 1, 0, -0.419209, 0, 0.90789, 182.667, 1.9829, 208.796 )
+script = ExtResource( 6 )
+
+[node name="pinktree318" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.998054, 0, 0.0623493, 0, 1, 0, -0.0623493, 0, -0.998054, 216.429, 0.773705, 255.911 )
+script = ExtResource( 6 )
+
+[node name="pinktree326" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.136004, 0, 0.990708, 0, 1, 0, -0.990708, 0, 0.136004, 210.713, 0.767944, 257.926 )
+script = ExtResource( 6 )
+
+[node name="redtree214" type="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.377604, 0, -0.925967, 0, 1, 0, 0.925967, 0, 0.377604, 193.189, 0.767654, 230.944 )
+script = ExtResource( 6 )
