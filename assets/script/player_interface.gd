@@ -13,7 +13,7 @@ onready var env = scene.get_node("WorldEnvironment").environment
 var timer = Timer.new()
 
 func _ready():
-	#scene.get_node("theme_sound").playing = true
+	scene.get_node("theme_sound").playing = true
 	timer.one_shot = true
 	timer.wait_time = 2
 	timer.connect("timeout",self,"gameStartTimeout")

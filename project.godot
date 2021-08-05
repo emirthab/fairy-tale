@@ -35,6 +35,11 @@ config/icon="res://icon.png"
 CalcPower="*res://assets/script/calc_power.gd"
 Death="*res://assets/script/death.gd"
 
+[display]
+
+window/size/fullscreen=true
+window/vsync/use_vsync=false
+
 [editor_plugins]
 
 enabled=PoolStringArray( "waterways", "zylann.hterrain", "zylann.scatter" )
