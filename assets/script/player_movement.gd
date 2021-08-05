@@ -52,10 +52,10 @@ func _physics_process(delta):
 		pivot.rotation.y = lerp_angle(pivot.rotation.y, puppet_pivot.rotation.y ,delta * 2)
 		pivot.global_transform.origin = pivot.global_transform.origin.linear_interpolate(character.get_node("RemotePivot").global_transform.origin,delta *1)
 	
-	if velocity != Vector3(0,-0.01,0) && !Input.is_action_pressed("speed_up") && is_on_floor() && !$combat.attacking() && !$combat.hurting():
+	if is_moving() && velocity != Vector3(0,-0.01,0) && !Input.is_action_pressed("speed_up") && is_on_floor() && !$combat.attacking() && !$combat.hurting():
 		animplayer.play("walk")
 
-	elif Input.is_action_pressed("speed_up") && velocity != Vector3(0,-0.01,0) && is_on_floor() && !$combat.attacking() && !$combat.hurting():
+	elif is_moving() && Input.is_action_pressed("speed_up") && velocity != Vector3(0,-0.01,0) && is_on_floor() && !$combat.attacking() && !$combat.hurting():
 		animplayer.play("run")
 
 	elif is_on_floor() && !$combat.attacking() && !$combat.hurting():
@@ -114,3 +114,10 @@ func _physics_process(delta):
 	else:
 		var look = (global_transform.origin - character.transform.basis.z)
 		$combat.target_pivot.look_at(look,Vector3.UP)
+		
+func is_moving():
+	if (Input.is_action_pressed("move_left") || Input.is_action_pressed("move_right")\
+	|| Input.is_action_pressed("move_backward")) || Input.is_action_pressed("move_forward"):
+		return true
+	else:
+		return false
