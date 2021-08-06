@@ -184,10 +184,10 @@ scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 2 )
 
 [node name="main_anchor" type="Control" parent="."]
-anchor_left = 0.246
-anchor_top = 0.005
-anchor_right = 0.743
-anchor_bottom = 0.792
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 margin_left = 0.095993
 margin_top = -2.38419e-07
 margin_right = 0.167969
@@ -197,7 +197,7 @@ __meta__ = {
 }
 
 [node name="logo" type="Sprite" parent="main_anchor"]
-position = Vector2( 252.231, 154.928 )
+position = Vector2( 9.92937, -166.263 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 
@@ -206,10 +206,10 @@ anchor_left = 0.327
 anchor_top = 0.599
 anchor_right = 0.687
 anchor_bottom = 0.936
-margin_left = -0.208939
-margin_top = -0.216125
-margin_right = 428.551
-margin_bottom = 371.72
+margin_left = -88.959
+margin_top = -70.6526
+margin_right = 523.015
+margin_bottom = 460.347
 rect_scale = Vector2( 0.3, 0.3 )
 icon = ExtResource( 5 )
 flat = true
