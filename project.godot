@@ -28,6 +28,7 @@ _global_script_class_icons={
 
 config/name="Candy Girl Escape"
 run/main_scene="res://assets/scenes/Spatial.tscn"
+boot_splash/image="res://splash.png"
 config/icon="res://icon.png"
 
 [autoload]
