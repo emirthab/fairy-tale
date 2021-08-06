@@ -69,13 +69,11 @@ func _physics_process(delta: float) -> void:
 		if has_node("StaticBody"):
 			for col in get_node("StaticBody").get_children():
 				col.disabled = false
-		lod = 2
 		lod = 0
 	elif distance < lod_1_max_distance:
 		if has_node("StaticBody"):
 			for col in get_node("StaticBody").get_children():
 				col.disabled = false
-		lod = 2
 		lod = 1
 	elif distance < lod_2_max_distance:
 		if has_node("StaticBody"):

@@ -31,6 +31,9 @@ var healthbar = preload("res://assets/sprite/enemy_healthbar.tscn").instance()
 
 export var health = 150
 
+var timer := 0.0
+var refresh_rate := 0.25
+
 func _ready():
 	Death.connect("death_signal",self,"on_player_death")
 	if $enemy.scale.x != 1:
@@ -54,6 +57,9 @@ func _ready():
 	$spawnarea.connect("body_exited",self,"spawn_exited")
 	$enemy/attack_area.connect("body_entered",self,"attack_entered")
 	$enemy/attack_area.connect("body_exited",self,"attack_exited")
+	
+	randomize()
+	timer += rand_range(0, refresh_rate)
 
 func _physics_process(delta):
 	direction = Vector3()
@@ -77,8 +83,28 @@ func _physics_process(delta):
 	direction = direction.normalized()
 	velocity = direction * speed
 	velocity.y = y_velocity
-	$enemy.move_and_slide(velocity,Vector3.UP)
+	
+	if direction != Vector3():
+		$enemy.move_and_slide(velocity,Vector3.UP)
+	
+	#LOD VİSİBLE
+	if timer <= refresh_rate:
+		timer += delta
+		return
 
+	timer = 0.0
+	
+	var camera := get_viewport().get_camera()
+	if camera == null:
+		return
+	var distance := camera.global_transform.origin.distance_to(global_transform.origin)
+	
+	if distance > 100:
+		visible = false
+	else:
+		visible = true
+
+		
 func spawnpoint_entered(body):
 	on_spawn_point = true
 	walking_to_spawn = false
