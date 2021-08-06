@@ -22,7 +22,7 @@ when this area hits the character, if the character is inside that area, it take
 ### :large_blue_circle: Player Movement:
 * "W,A,S,D" keys for movement, "Shift" to run fast and "Space" to jump.
 
-### :large_blue_circle: Autofocus On The Enemy::
+### :large_blue_circle: Autofocus On The Enemy:
 * Inside the character node is a node named "target". Changes the rotation based on the "direction" value. 
 * A focus mark appears on the enemy closest to this target. Our character's next attack will be in this focus direction.
 
