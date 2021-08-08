@@ -2,6 +2,10 @@
   <a href="https://github.com/emirthab/fairy-tale">
     <img src="https://github.com/emirthab/fairy-tale/blob/main/assets/textures/logo.png?raw=true" alt="Fairy Tale" width="600">
   </a>
+  
+  <a href="https://www.youtube.com/watch?v=FfsBgg5n6kA">
+    <img src="https://github.com/emirthab/fairy-tale/blob/main/screenshots/youtube.png?raw=true" alt="Fairy Tale" width="600">
+  </a>
 </p>
 
 # Introduction:
